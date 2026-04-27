@@ -3,35 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Virmina — Minimalist Habit Tracker</title>
-  <meta name="description" content="Virmina: 미니멀 습관 트래커 / Build Streaks. Build Routines." />
-  <meta property="og:title" content="Virmina — Minimalist Habit Tracker" />
-  <meta property="og:description" content="Start good habits. Break bad ones. Virmina keeps it beautifully simple." />
-  <meta property="og:image" content="https://hoonslabs.github.io/marketing/virmina/og-image.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <title>Support — Virmina</title>
+  <meta name="description" content="Virmina 고객 지원 / Support" />
   <style>
-    /* ── Reset ─────────────────────────────────────────────── */
+    /* ── Reset & Base ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── Design Tokens ─────────────────────────────────────── */
     :root {
-      --sage:       #4A7C59;
-      --sage-dark:  #2D5C3F;
-      --sage-light: #5D9470;
-      --peach:      #E8A87C;
-      --mint:       #6FCBA0;
-      --amber:      #F0A500;
-      --cream:      #F7F4EF;
-      --surface:    #FFFFFF;
-      --charcoal:   #2C2C2C;
-      --muted:      #7A9E87;
-      --border:     #E2DDD6;
-      --radius:     14px;
-      --shadow-sm:  0 1px 4px rgba(0,0,0,0.06);
-      --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
-      --shadow-lg:  0 16px 56px rgba(0,0,0,0.14);
+      --sage:        #4A7C59;
+      --sage-dark:   #2D5C3F;
+      --peach:       #E8A87C;
+      --mint:        #6FCBA0;
+      --amber:       #F0A500;
+      --cream:       #F7F4EF;
+      --surface:     #FFFFFF;
+      --charcoal:    #2C2C2C;
+      --muted:       #7A9E87;
+      --border:      #E2DDD6;
+      --radius:      12px;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -41,9 +30,6 @@
         --charcoal:#F0EDE8;
         --border:  #344030;
         --muted:   #7A9E87;
-        --shadow-sm: 0 1px 4px rgba(0,0,0,0.3);
-        --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
-        --shadow-lg: 0 16px 56px rgba(0,0,0,0.5);
       }
     }
 
@@ -53,30 +39,21 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--cream);
       color: var(--charcoal);
-      line-height: 1.6;
+      line-height: 1.75;
       font-size: 16px;
-      overflow-x: hidden;
     }
 
     /* ── Language Toggle ──────────────────────────────────── */
     .lang-bar {
       position: sticky;
       top: 0;
-      z-index: 200;
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      z-index: 100;
+      background: var(--surface);
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: flex-end;
       padding: 10px 24px;
       gap: 8px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .lang-bar {
-        background: rgba(37,46,33,0.88);
-      }
     }
 
     .lang-btn {
@@ -97,966 +74,232 @@
       color: #fff;
     }
 
-    /* ── Language Blocks ─────────────────────────────────── */
-    [lang-block] { display: none; }
-    [lang-block].visible { display: block; }
-    [lang-block-inline] { display: none; }
-    [lang-block-inline].visible { display: inline; }
-
-    /* ── Hero ─────────────────────────────────────────────── */
-    .hero {
-      position: relative;
-      background: linear-gradient(160deg, var(--sage) 0%, var(--sage-dark) 60%, #1a2e1f 100%);
+    /* ── Header ───────────────────────────────────────────── */
+    .site-header {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
       color: #fff;
-      padding: 80px 24px 0;
+      padding: 56px 24px 48px;
       text-align: center;
-      overflow: hidden;
     }
 
-    .hero-bg-orb {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero-bg-orb-1 {
-      width: 600px; height: 600px;
-      top: -300px; right: -200px;
-      background: radial-gradient(circle, rgba(111,203,160,0.18) 0%, transparent 65%);
-    }
-    .hero-bg-orb-2 {
-      width: 400px; height: 400px;
-      bottom: 100px; left: -150px;
-      background: radial-gradient(circle, rgba(232,168,124,0.12) 0%, transparent 65%);
-    }
-    .hero-dots {
-      position: absolute;
-      top: 60px; left: 60px;
-      width: 120px; height: 120px;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1.5px, transparent 1.5px);
-      background-size: 14px 14px;
-      border-radius: 50%;
-    }
-
-    .hero-app-icon {
-      width: 80px;
-      height: 80px;
+    .logo-mark {
+      width: 64px;
+      height: 64px;
       background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.25);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 20px;
-      padding: 5px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-family: 'Outfit', -apple-system, sans-serif;
-      font-size: clamp(36px, 7vw, 64px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -1.5px;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--mint);
-    }
-
-    .hero-sub {
-      font-size: clamp(16px, 2.5vw, 20px);
-      opacity: 0.8;
-      max-width: 480px;
-      margin: 0 auto 36px;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 60px;
-    }
-
-    .btn-appstore {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      color: #000;
-      padding: 13px 22px;
-      border-radius: 13px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    }
-
-    .btn-appstore:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.3);
-    }
-
-    .btn-appstore svg { flex-shrink: 0; }
-
-    .btn-appstore-sub {
-      font-size: 9px;
-      font-weight: 500;
-      opacity: 0.6;
-      letter-spacing: 0.3px;
-      display: block;
-      text-align: left;
-    }
-
-    .btn-appstore-main {
-      font-size: 15px;
-      font-weight: 700;
-      display: block;
-      text-align: left;
-      letter-spacing: -0.2px;
-    }
-
-    /* ── Hero Phone Mockup ───────────────────────────────── */
-    .hero-phones {
-      position: relative;
-      max-width: 520px;
-      margin: 0 auto;
-      height: 420px;
-    }
-
-    .phone-frame {
-      position: absolute;
-      background: linear-gradient(148deg, #4A4A4E 0%, #1C1C1E 55%, #252527 100%);
-      border-radius: 44px;
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 12px 28px rgba(0,0,0,0.3);
-    }
-
-    .phone-frame::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 44px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .phone-main {
-      width: 240px;
-      height: 490px;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 0;
-      padding: 8px;
-      z-index: 3;
-    }
-
-    .phone-left {
-      width: 200px;
-      height: 408px;
-      left: 0;
-      bottom: 20px;
-      padding: 7px;
-      z-index: 2;
-      transform: rotate(-6deg);
-      transform-origin: bottom left;
-      opacity: 0.85;
-    }
-
-    .phone-right {
-      width: 200px;
-      height: 408px;
-      right: 0;
-      bottom: 20px;
-      padding: 7px;
-      z-index: 2;
-      transform: rotate(6deg);
-      transform-origin: bottom right;
-      opacity: 0.85;
-    }
-
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 37px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .phone-di {
-      position: absolute;
-      top: 9px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 78px;
-      height: 24px;
-      background: #000;
-      border-radius: 14px;
-      z-index: 10;
-    }
-
-    /* ── Mock Screen: Today ──────────────────────────────── */
-    .mock-today {
-      background: #F7F4EF;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    .mock-statusbar {
-      height: 40px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      padding: 0 18px 6px;
-      font-size: 10px;
-      font-weight: 700;
-      color: #2C2C2C;
-    }
-
-    /* mock-today: NavigationBar + Large Title layout */
-    .mock-nav-bar {
-      height: 34px;
-      display: flex; align-items: center;
-      justify-content: space-between;
-      padding: 0 12px;
-    }
-    .mock-nav-btn { display: flex; align-items: center; justify-content: center; }
-    .mock-large-title { padding: 2px 12px 6px; }
-    .mock-large-title-text {
-      font-size: 18px; font-weight: 700;
-      color: #2C2C2C; letter-spacing: -0.4px;
-    }
-
-    .mock-content { padding: 0 12px 0; }
-
-    .mock-progress {
-      display: flex; flex-direction: column; gap: 4px;
-      padding: 4px 0 8px;
-    }
-
-    .mock-prog-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .mock-prog-left { display: flex; flex-direction: column; }
-    .mock-prog-count { font-size: 9px; font-weight: 500; color: #2C2C2C; }
-    .mock-prog-msg   { font-size: 8px; color: #7A9E87; }
-    .mock-prog-pct   { font-size: 9px; font-weight: 700; color: #4A7C59; }
-
-    .mock-track {
-      height: 5px;
-      background: rgba(74,124,89,0.14);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    .mock-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #4A7C59, #6FCBA0);
-      border-radius: 3px;
-    }
-
-    .mock-section-header {
-      font-size: 8px; font-weight: 600;
-      color: #7A9E87; margin: 4px 0 4px;
-      letter-spacing: 0.2px;
-    }
-
-    .mock-habits { display: flex; flex-direction: column; gap: 5px; }
-    .mock-habit {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      border-radius: 11px;
-      padding: 9px 10px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    }
-    .mock-habit.dimmed { opacity: 0.55; }
-
-    .mock-habit-left { display: flex; align-items: center; gap: 8px; }
-    .mock-habit-colorbar { width: 3px; height: 32px; border-radius: 2px; flex-shrink: 0; }
-    .mock-habit-emoji { font-size: 16px; line-height: 1; }
-    .mock-habit-info { flex: 1; }
-    .mock-habit-name { font-size: 10px; font-weight: 600; color: #2C2C2C; }
-    .mock-habit-streak { font-size: 8px; color: #F0A500; margin-top: 2px; }
-    .mock-habit-streak.new { color: #7A9E87; }
-    .mock-check {
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .mock-check.done { background: #6FCBA0; }
-    .mock-check.todo { border: 1.5px solid rgba(74,124,89,0.35); }
-
-    /* ── Mock Screen: Stats ──────────────────────────────── */
-    .mock-stats {
-      background: #F7F4EF;
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-
-    .mock-stats-content { padding: 8px 12px 0; }
-    .mock-stats-title { font-size: 17px; font-weight: 700; color: #2C2C2C; letter-spacing: -0.4px; margin-bottom: 10px; }
-
-    .mock-heatmap-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 10px;
-      margin-bottom: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .mock-heatmap-label { font-size: 9px; color: #7A9E87; font-weight: 600; margin-bottom: 6px; }
-    .mock-heatmap-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 2px;
-    }
-
-    .mock-heatmap-cell {
-      aspect-ratio: 1;
-      border-radius: 2px;
-    }
-
-    .mock-streak-row {
-      display: flex;
-      gap: 6px;
-    }
-
-    .mock-streak-card {
-      flex: 1;
-      background: #fff;
-      border-radius: 10px;
-      padding: 9px;
-      text-align: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .mock-streak-num {
-      font-family: 'Outfit', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: #4A7C59;
-      letter-spacing: -0.5px;
-      line-height: 1;
-      margin-bottom: 2px;
-    }
-
-    .mock-streak-label { font-size: 8px; color: #7A9E87; font-weight: 500; }
-
-    /* ── Mock Screen: Widget ─────────────────────────────── */
-    .mock-widget {
-      background: #F7F4EF;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Small widget: matches actual SmallWidgetView light mode */
-    .mock-widget-card {
-      width: 130px;
-      background: linear-gradient(135deg, #F7F4EF, #EDE9E2);
       border-radius: 18px;
-      padding: 14px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-      display: flex; flex-direction: column;
-    }
-    .mock-widget-header {
-      display: flex; align-items: center; gap: 4px; margin-bottom: auto;
-    }
-    .mock-widget-icon { font-size: 14px; line-height: 1; }
-    .mock-widget-header-label { font-size: 11px; font-weight: 600; color: #4A7C59; }
-    .mock-widget-num {
-      font-family: -apple-system, sans-serif;
-      font-size: 30px;
-      font-weight: 700;
-      color: #2C2C2C;
-      line-height: 1;
-      letter-spacing: -1px;
-      margin-top: 10px;
-    }
-    .mock-widget-num span { font-size: 15px; font-weight: 500; color: #7A9E87; }
-    .mock-widget-bar {
-      height: 5px;
-      background: rgba(122,158,135,0.2);
-      border-radius: 3px;
-      margin: 6px 0;
-      overflow: hidden;
-    }
-    .mock-widget-fill {
-      height: 100%;
-      background: #4A7C59;
-      border-radius: 3px;
-      width: 60%;
-    }
-    .mock-widget-streak {
-      font-size: 10px;
-      font-weight: 500;
-      color: #F0A500;
-    }
-
-    /* ── Section Wrapper ─────────────────────────────────── */
-    .section-wrap {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ── Value Props ─────────────────────────────────────── */
-    .value-section {
-      padding: 80px 24px;
-    }
-
-    .section-eyebrow {
-      text-align: center;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: 'Outfit', -apple-system, sans-serif;
-      font-size: clamp(28px, 4.5vw, 44px);
-      font-weight: 800;
-      text-align: center;
-      letter-spacing: -1px;
-      line-height: 1.1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
       margin-bottom: 16px;
-      color: var(--charcoal);
+      backdrop-filter: blur(8px);
     }
 
-    .section-sub {
-      text-align: center;
-      color: var(--muted);
-      font-size: 17px;
-      max-width: 540px;
-      margin: 0 auto 60px;
-      line-height: 1.65;
+    .site-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
     }
 
-    /* ── Feature Cards Grid ──────────────────────────────── */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1080px;
+    .site-header .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+      font-weight: 400;
+    }
+
+    /* ── Main Layout ─────────────────────────────────────── */
+    .container {
+      max-width: 760px;
       margin: 0 auto;
+      padding: 48px 24px 80px;
     }
 
-    .feature-card {
+    /* ── Effective Date Badge ─────────────────────────────── */
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 28px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 40px;
     }
 
-    .feature-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
+    .meta-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mint);
     }
 
-    .feature-icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: color-mix(in srgb, var(--sage) 10%, transparent);
+    /* ── Section ─────────────────────────────────────────── */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: color-mix(in srgb, var(--sage) 12%, transparent);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
-      margin-bottom: 16px;
+      font-size: 18px;
+      flex-shrink: 0;
     }
 
-    .feature-card h3 {
-      font-size: 17px;
+    .section h2 {
+      font-size: 18px;
       font-weight: 700;
-      margin-bottom: 8px;
       color: var(--charcoal);
       letter-spacing: -0.3px;
     }
 
-    .feature-card p {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.65;
+    /* ── Typography ──────────────────────────────────────── */
+    p { margin-bottom: 14px; color: var(--charcoal); }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
     }
 
-    /* ── Feature Spotlight ───────────────────────────────── */
-    .spotlight-section {
-      padding: 0 24px 80px;
-    }
+    li { margin-bottom: 6px; }
 
-    .spotlight {
-      max-width: 1080px;
-      margin: 0 auto 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
+    strong { color: var(--charcoal); font-weight: 600; }
 
-    .spotlight.reverse { direction: rtl; }
-    .spotlight.reverse > * { direction: ltr; }
-
-    .spotlight-text {}
-
-    .spotlight-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: color-mix(in srgb, var(--sage) 10%, transparent);
+    a {
       color: var(--sage);
-      border-radius: 20px;
-      padding: 5px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--sage) 30%, transparent);
+      transition: border-color 0.2s;
     }
 
-    .spotlight-text h2 {
-      font-family: 'Outfit', -apple-system, sans-serif;
-      font-size: clamp(24px, 3.5vw, 36px);
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      line-height: 1.15;
-      margin-bottom: 16px;
-      color: var(--charcoal);
+    a:hover { border-color: var(--sage); }
+
+    /* ── Highlight Box ───────────────────────────────────── */
+    .highlight {
+      background: color-mix(in srgb, var(--mint) 10%, var(--surface));
+      border-left: 3px solid var(--mint);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 15px;
     }
 
-    .spotlight-text p {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 12px;
+    .highlight.warn {
+      background: color-mix(in srgb, var(--amber) 10%, var(--surface));
+      border-color: var(--amber);
     }
 
-    .spotlight-text p:last-child { margin-bottom: 0; }
-
-    .spotlight-phone {
-      display: flex;
-      justify-content: center;
+    /* ── FAQ Item ────────────────────────────────────────── */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
     }
 
-    .spotlight-phone-frame {
-      width: 240px;
-      height: 490px;
-      background: linear-gradient(148deg, #4A4A4E 0%, #1C1C1E 55%, #252527 100%);
-      border-radius: 44px;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 8px;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.22), 0 8px 24px rgba(0,0,0,0.12);
-      position: relative;
-    }
+    .faq-item:first-child { padding-top: 0; }
+    .faq-item:last-child  { border-bottom: none; padding-bottom: 0; }
 
-    .spotlight-phone-frame::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 44px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .spotlight-phone-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 37px;
-      overflow: hidden;
-      position: relative;
-      background: #F7F4EF;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .spotlight-phone-screen,
-      .mock-today,
-      .mock-stats,
-      .phone-screen { background: #1A1F17; }
-      .mock-title, .mock-habits .mock-habit-name, .mock-stats-title { color: #F0EDE8; }
-      .mock-progress, .mock-habit, .mock-heatmap-card, .mock-streak-card { background: #252E21; }
-    }
-
-    /* ── Mock: Grace Day screen ─────────────────────────── */
-    .mock-grace {
-      background: #F7F4EF;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 20px;
-    }
-
-    .mock-grace-badge {
-      background: color-mix(in srgb, #F0A500 15%, transparent);
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 11px;
-      font-weight: 700;
-      color: #F0A500;
-      letter-spacing: 0.6px;
-    }
-
-    .mock-grace-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      width: 100%;
-    }
-
-    .mock-grace-emoji { font-size: 36px; margin-bottom: 8px; }
-    .mock-grace-title { font-size: 14px; font-weight: 700; color: #2C2C2C; margin-bottom: 4px; }
-    .mock-grace-sub   { font-size: 11px; color: #7A9E87; line-height: 1.5; }
-
-    .mock-grace-streak {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      border-radius: 14px;
-      padding: 14px 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      width: 100%;
-    }
-    .mock-grace-streak-num {
-      font-family: 'Outfit', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      color: #4A7C59;
-    }
-    .mock-grace-streak-info { flex: 1; }
-    .mock-grace-streak-label { font-size: 11px; font-weight: 600; color: #2C2C2C; }
-    .mock-grace-streak-sub   { font-size: 10px; color: #7A9E87; }
-
-    .mock-grace-btn {
-      background: linear-gradient(135deg, #F0A500, #e09600);
-      border-radius: 12px;
-      padding: 12px;
-      text-align: center;
-      width: 100%;
-      font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-      box-shadow: 0 4px 12px rgba(240,165,0,0.35);
-    }
-
-    /* ── Milestone Strip ─────────────────────────────────── */
-    .milestone-section {
-      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
-      padding: 64px 24px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .milestone-section::before {
-      content: '';
-      position: absolute;
-      top: -100px; right: -100px;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(111,203,160,0.15) 0%, transparent 65%);
-    }
-
-    .milestone-section .section-eyebrow { color: var(--mint); }
-    .milestone-section .section-title   { color: #fff; }
-    .milestone-section .section-sub     { color: rgba(255,255,255,0.7); }
-
-    .milestone-track {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .milestone-chip {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 16px;
-      padding: 16px 20px;
-      min-width: 80px;
-      transition: background 0.2s;
-    }
-
-    .milestone-chip:hover { background: rgba(255,255,255,0.18); }
-
-    .milestone-chip .days {
-      font-family: 'Outfit', sans-serif;
-      font-size: 26px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -0.5px;
-      line-height: 1;
-    }
-
-    .milestone-chip .unit {
-      font-size: 10px;
+    .faq-q {
+      font-size: 15px;
       font-weight: 600;
-      color: var(--mint);
-      letter-spacing: 0.5px;
-    }
-
-    .milestone-chip .badge-emoji {
-      font-size: 18px;
-      margin-top: 4px;
-    }
-
-    /* ── Features List ───────────────────────────────────── */
-    .features-list-section {
-      padding: 80px 24px;
-    }
-
-    .features-list-grid {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .features-list-item {
+      color: var(--charcoal);
+      margin-bottom: 8px;
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
+      gap: 8px;
     }
 
-    .features-list-icon {
-      font-size: 24px;
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      background: color-mix(in srgb, var(--sage) 8%, transparent);
-      border-radius: 10px;
+    .faq-q::before {
+      content: "Q";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 22px;
+      background: var(--sage);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .faq-a {
+      font-size: 15px;
+      color: var(--charcoal);
+      line-height: 1.7;
+      padding-left: 30px;
+      margin: 0;
+    }
+
+    /* ── Contact Card ────────────────────────────────────── */
+    .contact-card {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(135deg,
+        color-mix(in srgb, var(--sage) 8%, var(--surface)),
+        color-mix(in srgb, var(--mint) 8%, var(--surface))
+      );
+      border: 1px solid color-mix(in srgb, var(--sage) 20%, transparent);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 16px;
     }
 
-    .features-list-text h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--charcoal);
-      margin-bottom: 4px;
-    }
+    .contact-card .icon { font-size: 28px; }
 
-    .features-list-text p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* ── Download CTA ────────────────────────────────────── */
-    .download-section {
-      padding: 100px 24px;
-      text-align: center;
-    }
-
-    .download-card {
-      max-width: 600px;
-      margin: 0 auto;
-      background: linear-gradient(160deg, var(--sage) 0%, var(--sage-dark) 100%);
-      border-radius: 28px;
-      padding: 56px 40px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .download-card::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(111,203,160,0.2) 0%, transparent 65%);
-    }
-
-    .download-card .app-icon-large {
-      width: 88px;
-      height: 88px;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.25);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 44px;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    }
-
-    .download-card h2 {
-      font-family: 'Outfit', -apple-system, sans-serif;
-      font-size: clamp(26px, 4vw, 36px);
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      margin-bottom: 12px;
-    }
-
-    .download-card p {
-      font-size: 16px;
-      opacity: 0.8;
-      line-height: 1.65;
-      margin-bottom: 32px;
-      max-width: 380px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .download-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 20px;
-      padding: 5px 14px;
+    .contact-card .label {
       font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .contact-card .value {
+      font-size: 15px;
       font-weight: 600;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 20px;
+      color: var(--sage);
     }
 
     /* ── Footer ──────────────────────────────────────────── */
     .site-footer {
-      background: var(--surface);
+      text-align: center;
+      padding: 32px 24px;
       border-top: 1px solid var(--border);
-      padding: 40px 24px;
-    }
-
-    .footer-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-brand-icon {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-
-    .footer-brand-name {
-      font-family: 'Outfit', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--charcoal);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
       font-size: 13px;
       color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: var(--sage); }
+    .site-footer a { color: var(--muted); }
 
-    .footer-copy {
-      font-size: 12px;
-      color: var(--muted);
-    }
+    /* ── Language visibility ─────────────────────────────── */
+    [lang-block] { display: none; }
+    [lang-block].visible { display: block; }
 
     /* ── Responsive ──────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .hero { padding: 60px 20px 0; }
-      .hero-phones { height: 360px; }
-      .phone-main  { width: 200px; height: 408px; }
-      .phone-left, .phone-right { display: none; }
-
-      .spotlight {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        direction: ltr !important;
-      }
-      .spotlight.reverse > * { direction: ltr; }
-      .spotlight-phone { order: -1; }
-
-      .spotlight-phone-frame { width: 200px; height: 408px; }
-
-      .download-card { padding: 40px 24px; }
-
-      .footer-inner { justify-content: center; text-align: center; }
-      .footer-links { justify-content: center; }
-    }
-
-    @media (max-width: 480px) {
-      .feature-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 36px; }
+    @media (max-width: 600px) {
+      .section { padding: 24px 18px; }
+      .site-header { padding: 40px 20px 36px; }
+      .contact-card { flex-direction: column; align-items: flex-start; gap: 8px; }
     }
   </style>
 </head>
@@ -1067,975 +310,862 @@
   <button class="lang-btn active" onclick="setLang('ko')" id="btn-ko">한국어</button>
   <button class="lang-btn"        onclick="setLang('en')" id="btn-en">English</button>
   <button class="lang-btn"        onclick="setLang('ja')" id="btn-ja">日本語</button>
+  <button class="lang-btn"        onclick="setLang('de')" id="btn-de">Deutsch</button>
+</div>
+
+<!-- ── Header ─────────────────────────────────── -->
+<header class="site-header">
+  <div class="logo-mark">🌱</div>
+  <h1>Virmina</h1>
+  <p class="subtitle" lang-block="ko" id="hd-ko">고객 지원</p>
+  <p class="subtitle" lang-block="en" id="hd-en">Support</p>
+  <p class="subtitle" lang-block="ja" id="hd-ja">サポート</p>
+  <p class="subtitle" lang-block="de" id="hd-de">Support</p>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     KOREAN VERSION
+══════════════════════════════════════════════ -->
+<div lang-block="ko" id="content-ko">
+<main class="container">
+
+  <div class="meta-badge">
+    <span class="dot"></span>
+    최종 업데이트: 2026년 4월 27일
+  </div>
+
+  <!-- 자주 묻는 질문 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">💬</div>
+      <h2>자주 묻는 질문 (FAQ)</h2>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">스트릭이 갑자기 사라졌어요.</p>
+      <p class="faq-a">
+        스트릭은 해당 날짜에 습관을 완료하지 않으면 자동으로 초기화됩니다.
+        실수로 빠뜨린 경우 <strong>소급 완료</strong> 기능으로 최대 3일 전까지 기록을 추가할 수 있습니다.
+        홈 화면에서 습관을 길게 누르거나 습관 상세 화면에서 날짜를 선택해 보세요.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Grace Day란 무엇인가요?</p>
+      <p class="faq-a">
+        Grace Day는 하루를 쉬어도 스트릭이 유지되는 여유 기능입니다.
+        완벽하지 않아도 꾸준함을 이어갈 수 있도록 돕기 위해 설계되었습니다.
+        <strong>긍정 습관</strong>에만 적용 가능하며, 회피 습관에는 사용할 수 없습니다.
+        Grace Day는 연속으로 사용할 수 없습니다.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">회피 습관(Avoidance Habit)은 어떻게 동작하나요?</p>
+      <p class="faq-a">
+        끊고 싶은 나쁜 습관을 등록하면, 그날 참았을 때 스트릭이 쌓입니다.
+        앱을 열어 별도로 체크하지 않아도 자정이 되면 자동으로 완료 처리됩니다.
+        <strong>CLEAN DAYS</strong> 카운터로 며칠째 참고 있는지 한눈에 확인할 수 있습니다.
+        Grace Day는 회피 습관에 적용되지 않습니다.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">위젯이 데이터를 불러오지 못해요 / 비어 있어요.</p>
+      <p class="faq-a">
+        아래 순서로 확인해 보세요.
+      </p>
+      <ul style="padding-left: 30px; margin: 8px 0 0; font-size: 15px;">
+        <li>앱을 한 번 열어 데이터를 동기화하세요.</li>
+        <li>홈 화면에서 위젯을 길게 누른 뒤 <strong>위젯 편집</strong>을 눌러 설정을 저장하세요.</li>
+        <li>그래도 해결되지 않으면 위젯을 삭제 후 다시 추가해 보세요.</li>
+        <li>iPhone을 재시작하면 대부분의 위젯 문제가 해결됩니다.</li>
+      </ul>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Apple Health 연동이 작동하지 않아요.</p>
+      <p class="faq-a">
+        현재 버전에서는 <strong>앱이 열려 있는 동안</strong>에만 Apple Health 데이터를 확인합니다.
+        iOS 설정 → 건강 → 데이터 접근 및 기기에서 Virmina에 필요한 항목(걸음 수, 운동, 수면, 마음챙기기)이
+        활성화되어 있는지 확인해 주세요.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">iCloud 동기화가 되지 않아요.</p>
+      <p class="faq-a">
+        동기화가 작동하려면 두 기기 모두 <strong>같은 Apple ID로 iCloud에 로그인</strong>되어 있어야 합니다.
+        iOS 설정 → [내 이름] → iCloud → Virmina가 활성화되어 있는지 확인하고,
+        인터넷 연결 상태도 확인해 보세요. 변경 사항이 반영되는 데 최대 수 분이 걸릴 수 있습니다.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">습관 데이터를 백업하거나 이전할 수 있나요?</p>
+      <p class="faq-a">
+        앱 내 <strong>설정 → 데이터 내보내기</strong>에서 습관과 기록 전체를 JSON 파일로 저장할 수 있습니다.
+        새 기기나 재설치 후 <strong>설정 → 데이터 가져오기</strong>로 복원하세요.
+        iCloud를 사용 중이라면 별도 백업 없이도 자동 복원됩니다.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">앱을 삭제하면 데이터도 사라지나요?</p>
+      <p class="faq-a">
+        기기 내 로컬 데이터는 앱 삭제 시 함께 삭제됩니다.
+        iCloud에 로그인된 상태였다면 CloudKit에 저장된 데이터는 유지되며,
+        재설치 후 자동으로 복원됩니다. 확실한 보관을 위해 사전에 JSON 내보내기를 권장합니다.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">알림이 오지 않아요.</p>
+      <p class="faq-a">
+        iOS 설정 → 알림 → Virmina에서 알림이 허용되어 있는지 확인하세요.
+        앱 내 각 습관 상세 화면에서 알림 시간이 설정되어 있는지도 확인하세요.
+        방해 금지 모드나 집중 모드가 활성화된 경우 알림이 차단될 수 있습니다.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Siri나 단축어 기능을 사용하려면 어떻게 하나요?</p>
+      <p class="faq-a">
+        iOS 16 이상에서 Siri에게 "Virmina에서 [습관 이름] 완료해줘" 라고 말하거나,
+        단축어 앱에서 Virmina 액션을 추가할 수 있습니다.
+        지원 액션: 습관 완료, 오늘 건너뛰기, 스트릭 확인, 오늘 진행 상황 확인, 습관 추가.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">AI 습관 코치란 무엇인가요?</p>
+      <p class="faq-a">
+        AI 습관 코치는 쌓인 체크인 데이터를 분석해 나만의 습관 패턴을 알려주는 기능입니다.
+        가장 잘 되는 요일, 집중력이 높은 시간대, 기분과 달성률의 상관관계 등의 인사이트를 카드 형태로 보여줍니다.
+        모든 분석은 기기 내에서 이루어지며, 서버 전송이나 계정이 필요하지 않습니다.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">AI 코치 인사이트가 언제부터 표시되나요?</p>
+      <p class="faq-a">
+        체크인이 어느 정도 쌓여야 분석이 시작됩니다. 통계 화면의 AI 코치 카드에서 현재 학습 진행 상황을 확인할 수 있습니다.
+        습관 수가 적을수록 더 빠르게 인사이트가 생성됩니다.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">AI 코치의 일부 인사이트가 잠겨 있어요.</p>
+      <p class="faq-a">
+        첫 번째 인사이트는 무료로 제공됩니다. 추가 인사이트(2순위 이후)는 프리미엄 기능입니다.
+        잠긴 인사이트를 탭하면 프리미엄 기능 안내를 확인할 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 문제 해결 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🔧</div>
+      <h2>일반적인 문제 해결</h2>
+    </div>
+
+    <div class="highlight">
+      대부분의 문제는 <strong>앱을 완전히 종료 후 다시 시작</strong>하거나 <strong>iPhone을 재시작</strong>하면 해결됩니다.
+    </div>
+
+    <ul>
+      <li><strong>앱이 느리거나 멈춤</strong> — 앱을 완전히 종료(앱 전환 화면에서 위로 쓸어올림)한 후 재실행하세요.</li>
+      <li><strong>위젯이 업데이트되지 않음</strong> — 앱을 열면 위젯 데이터가 갱신됩니다. 위젯 설정을 저장하면 즉시 반영됩니다.</li>
+      <li><strong>라이브 액티비티가 표시되지 않음</strong> — iOS 설정 → Virmina → 라이브 액티비티 허용이 켜져 있는지 확인하세요.</li>
+      <li><strong>iCloud 동기화 지연</strong> — 네트워크 상태와 iCloud 설정을 확인하세요. 변경 사항 반영에 최대 수 분이 소요될 수 있습니다.</li>
+    </ul>
+  </section>
+
+  <!-- 문의하기 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">✉️</div>
+      <h2>문의하기</h2>
+    </div>
+    <p>
+      FAQ에서 해결되지 않은 문제나 피드백이 있으시면 이메일로 문의해 주세요.
+      가능한 한 빠르게 답변드리겠습니다.
+    </p>
+    <div class="highlight">
+      문의 시 <strong>iOS 버전</strong>, <strong>기기 모델</strong>, <strong>문제 재현 방법</strong>을 함께 알려주시면 더 빠른 지원이 가능합니다.
+    </div>
+    <div class="contact-card">
+      <div class="icon">📬</div>
+      <div>
+        <div class="label">이메일</div>
+        <div class="value"><a href="mailto:hoons.labs@gmail.com">hoons.labs@gmail.com</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 개인정보 처리방침 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <h2>개인정보 처리방침</h2>
+    </div>
+    <p>
+      Virmina의 개인정보 처리방침은 아래 링크에서 확인하실 수 있습니다.
+    </p>
+    <p>
+      <a href="https://hoonslabs.github.io/privacy/virmina/">hoonslabs.github.io/privacy/virmina/</a>
+    </p>
+  </section>
+
+</main>
 </div>
 
 <!-- ══════════════════════════════════════════════
-     HERO
+     ENGLISH VERSION
 ══════════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-bg-orb hero-bg-orb-1"></div>
-  <div class="hero-bg-orb hero-bg-orb-2"></div>
-  <div class="hero-dots"></div>
+<div lang-block="en" id="content-en">
+<main class="container">
 
-  <div class="hero-app-icon">🌱</div>
-
-  <div class="hero-eyebrow">
-    <span lang-block-inline="ko" class="visible">미니멀 습관 트래커</span>
-    <span lang-block-inline="en">Minimalist Habit Tracker</span>
-    <span lang-block-inline="ja">ミニマル習慣トラッカー</span>
-    &nbsp;· iOS
+  <div class="meta-badge">
+    <span class="dot"></span>
+    Last updated: April 27, 2026
   </div>
 
-  <h1>
-    <span lang-block="ko" class="visible">
-      좋은 습관을 쌓고,<br><em>나쁜 습관을 끊으세요</em>
-    </span>
-    <span lang-block="en">
-      Build Streaks.<br><em>Build Routines.</em>
-    </span>
-    <span lang-block="ja">
-      良い習慣を積み重ね、<br><em>悪い習慣を断ち切る</em>
-    </span>
-  </h1>
-
-  <p class="hero-sub">
-    <span lang-block-inline="ko" class="visible">깔끔한 디자인으로 복잡함 없이, 오직 당신의 성장에만 집중합니다.</span>
-    <span lang-block-inline="en">No clutter, no overwhelm. Just you and your daily growth.</span>
-    <span lang-block-inline="ja">ごちゃごちゃしない、シンプルなデザイン。あなたの成長だけに集中します。</span>
-  </p>
-
-  <div class="hero-cta-group">
-    <a class="btn-appstore" id="btn-appstore-hero" href="https://apps.apple.com/us/app/virmina-minimal-habit-tracker/id6761351988" target="_blank" rel="noopener">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="#000"/>
-      </svg>
-      <div>
-        <span class="btn-appstore-sub">
-          <span lang-block-inline="ko" class="visible">App Store에서 다운로드</span>
-          <span lang-block-inline="en">Download on the</span>
-          <span lang-block-inline="ja">App Storeからダウンロード</span>
-        </span>
-        <span class="btn-appstore-main">App Store</span>
-      </div>
-    </a>
-  </div>
-
-  <!-- Phone Mockups -->
-  <div class="hero-phones">
-    <!-- Left phone: Stats -->
-    <div class="phone-frame phone-left">
-      <div class="phone-screen">
-        <div class="mock-stats">
-          <div class="phone-di"></div>
-          <div class="mock-statusbar">
-            <span>9:41</span>
-            <div style="display:flex;gap:4px;align-items:center;">
-              <svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.8" fill="#2C2C2C"/><rect x="3.8" y="3.5" width="2.5" height="6.5" rx="0.8" fill="#2C2C2C"/><rect x="7.6" y="1" width="2.5" height="9" rx="0.8" fill="#2C2C2C"/><rect x="11.4" y="0" width="2.5" height="10" rx="0.8" fill="#2C2C2C" opacity="0.25"/></svg>
-              <svg width="20" height="10" viewBox="0 0 20 10"><rect x="0.4" y="0.4" width="16" height="9.2" rx="2.8" stroke="#2C2C2C" stroke-opacity="0.3" stroke-width="0.8"/><rect x="17" y="3" width="2.5" height="4" rx="1.2" fill="#2C2C2C" opacity="0.3"/><rect x="1.5" y="1.5" width="12" height="7" rx="2" fill="#2C2C2C"/></svg>
-            </div>
-          </div>
-          <div class="mock-stats-content">
-            <div class="mock-stats-title" lang-content="stats-title">Statistics</div>
-            <div class="mock-heatmap-card">
-              <div class="mock-heatmap-label" lang-content="this-month">THIS MONTH</div>
-              <div class="mock-heatmap-grid" id="heatmap-left"></div>
-            </div>
-            <div class="mock-streak-row">
-              <div class="mock-streak-card">
-                <div class="mock-streak-num">23</div>
-                <div class="mock-streak-label" lang-content="best-streak">Best</div>
-              </div>
-              <div class="mock-streak-card">
-                <div class="mock-streak-num">87<span style="font-size:13px;">%</span></div>
-                <div class="mock-streak-label" lang-content="completion">Rate</div>
-              </div>
-              <div class="mock-streak-card">
-                <div class="mock-streak-num">🔥12</div>
-                <div class="mock-streak-label" lang-content="current">Now</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">💬</div>
+      <h2>Frequently Asked Questions</h2>
     </div>
 
-    <!-- Center phone: Today -->
-    <div class="phone-frame phone-main">
-      <div class="phone-screen">
-        <div class="mock-today">
-          <div class="phone-di"></div>
-          <div class="mock-statusbar">
-            <span>9:41</span>
-            <div style="display:flex;gap:4px;align-items:center;">
-              <svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.8" fill="#2C2C2C"/><rect x="3.8" y="3.5" width="2.5" height="6.5" rx="0.8" fill="#2C2C2C"/><rect x="7.6" y="1" width="2.5" height="9" rx="0.8" fill="#2C2C2C"/><rect x="11.4" y="0" width="2.5" height="10" rx="0.8" fill="#2C2C2C" opacity="0.25"/></svg>
-              <svg width="20" height="10" viewBox="0 0 20 10"><rect x="0.4" y="0.4" width="16" height="9.2" rx="2.8" stroke="#2C2C2C" stroke-opacity="0.3" stroke-width="0.8"/><rect x="17" y="3" width="2.5" height="4" rx="1.2" fill="#2C2C2C" opacity="0.3"/><rect x="1.5" y="1.5" width="12" height="7" rx="2" fill="#2C2C2C"/></svg>
-            </div>
-          </div>
-          <!-- NavigationBar with toolbar buttons -->
-          <div class="mock-nav-bar">
-            <div class="mock-nav-btn">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <circle cx="8" cy="8" r="6.5" stroke="#4A7C59" stroke-width="1.2"/>
-                <circle cx="5" cy="8" r="0.9" fill="#4A7C59"/>
-                <circle cx="8" cy="8" r="0.9" fill="#4A7C59"/>
-                <circle cx="11" cy="8" r="0.9" fill="#4A7C59"/>
-              </svg>
-            </div>
-            <div class="mock-nav-btn">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M7 2v10M2 7h10" stroke="#4A7C59" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-          <!-- Large navigation title -->
-          <div class="mock-large-title">
-            <div class="mock-large-title-text" id="main-title">Tue, Apr 1</div>
-          </div>
-          <div class="mock-content">
-            <!-- Progress section (inline, no card) -->
-            <div class="mock-progress">
-              <div class="mock-prog-row">
-                <div class="mock-prog-left">
-                  <span class="mock-prog-count" id="main-progress-count">3/5 Done</span>
-                  <span class="mock-prog-msg" id="main-progress-label">Almost there!</span>
-                </div>
-                <span class="mock-prog-pct" id="main-progress-pct">60%</span>
-              </div>
-              <div class="mock-track"><div class="mock-fill" style="width:60%"></div></div>
-            </div>
-            <div class="mock-section-header" id="main-in-progress-header">In Progress (2)</div>
-            <div class="mock-habits" id="main-habits"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right phone: Widget -->
-    <div class="phone-frame phone-right">
-      <div class="phone-screen">
-        <div class="mock-widget">
-          <div class="phone-di"></div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px;width:100%;">
-            <div style="font-size:10px;color:#7A9E87;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;" id="right-widget-label">HOME SCREEN WIDGET</div>
-            <div class="mock-widget-card">
-              <div class="mock-widget-header">
-                <div class="mock-widget-icon">🌱</div>
-                <div class="mock-widget-header-label" id="right-widget-sub">오늘</div>
-              </div>
-              <div class="mock-widget-num">3<span>/5</span></div>
-              <div class="mock-widget-bar"><div class="mock-widget-fill"></div></div>
-              <div class="mock-widget-streak" id="right-widget-streak">🔥 12일 연속</div>
-            </div>
-            <div style="font-size:9px;color:#7A9E87;text-align:center;" id="right-lockscreen-label">잠금화면 위젯도 지원</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════
-     VALUE PROPS
-══════════════════════════════════════════════ -->
-<section class="value-section">
-  <div class="section-wrap">
-    <div class="section-eyebrow">
-      <span lang-block-inline="ko" class="visible">왜 Virmina인가요?</span>
-      <span lang-block-inline="en">Why Virmina?</span>
-      <span lang-block-inline="ja">なぜVirminaなのか</span>
-    </div>
-    <h2 class="section-title">
-      <span lang-block="ko" class="visible">습관 앱의 새로운 기준</span>
-      <span lang-block="en">A new standard for habit apps</span>
-      <span lang-block="ja">習慣アプリの新しいスタンダード</span>
-    </h2>
-    <p class="section-sub">
-      <span lang-block-inline="ko" class="visible">너무 단순하지도, 너무 복잡하지도 않게. 꾸준함을 방해하는 요소는 모두 걷어냈습니다.</span>
-      <span lang-block-inline="en">Not too simple, not too complex. Everything that gets in the way of consistency — removed.</span>
-      <span lang-block-inline="ja">シンプルすぎず、複雑すぎず。継続の邪魔になるものをすべて取り除きました。</span>
-    </p>
-
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-icon-wrap">🎯</div>
-        <h3>
-          <span lang-block-inline="ko" class="visible">빠른 체크인</span>
-          <span lang-block-inline="en">One-tap check-in</span>
-          <span lang-block-inline="ja">ワンタップチェックイン</span>
-        </h3>
-        <p>
-          <span lang-block-inline="ko" class="visible">탭 한 번으로 습관 완료. 홈 화면 위젯에서도 앱을 열지 않고 바로 체크인할 수 있습니다.</span>
-          <span lang-block-inline="en">Mark habits done with a single tap — even from your Home Screen widget without opening the app.</span>
-          <span lang-block-inline="ja">ワンタップで習慣を完了。ホーム画面ウィジェットからもアプリを開かずに直接チェックインできます。</span>
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-wrap">🔥</div>
-        <h3>
-          <span lang-block-inline="ko" class="visible">스트릭 & 마일스톤</span>
-          <span lang-block-inline="en">Streaks & Milestones</span>
-          <span lang-block-inline="ja">ストリーク & マイルストーン</span>
-        </h3>
-        <p>
-          <span lang-block-inline="ko" class="visible">3일부터 100일까지, 이정표마다 달성 뱃지로 동기부여. 꾸준함이 쌓이는 게 눈에 보입니다.</span>
-          <span lang-block-inline="en">Milestone badges from 3 to 100 days. Watch your consistency compound visually.</span>
-          <span lang-block-inline="ja">3日から100日まで、節目ごとに達成バッジでモチベーションアップ。継続が積み重なるのが目に見えます。</span>
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-wrap">☀️</div>
-        <h3>
-          <span lang-block-inline="ko" class="visible">Grace Day</span>
-          <span lang-block-inline="en">Grace Day</span>
-          <span lang-block-inline="ja">Grace Day</span>
-        </h3>
-        <p>
-          <span lang-block-inline="ko" class="visible">완벽하지 않아도 괜찮아요. 하루를 쉬어도 스트릭이 유지되는 Grace Day로 포기하지 말고 이어가세요.</span>
-          <span lang-block-inline="en">Life happens. Use a Grace Day to skip one day without breaking your streak — because consistency beats perfection.</span>
-          <span lang-block-inline="ja">完璧じゃなくても大丈夫。Grace Dayを使えば1日休んでもストリークが続きます。諦めずに継続しましょう。</span>
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-wrap">🚫</div>
-        <h3>
-          <span lang-block-inline="ko" class="visible">회피 습관 (Avoidance)</span>
-          <span lang-block-inline="en">Avoidance Habits</span>
-          <span lang-block-inline="ja">回避習慣</span>
-        </h3>
-        <p>
-          <span lang-block-inline="ko" class="visible">끊고 싶은 나쁜 습관도 트래킹. 참은 날이 쌓일수록 스트릭이 늘고, 자정이 되면 자동으로 완료 처리됩니다.</span>
-          <span lang-block-inline="en">Track vices you want to break. Resist for a day and your streak grows — auto-completed at midnight.</span>
-          <span lang-block-inline="ja">やめたい悪い習慣もトラッキング。我慢した日が積み重なるほどストリークが伸び、深夜に自動完了します。</span>
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-wrap">📊</div>
-        <h3>
-          <span lang-block-inline="ko" class="visible">히트맵 & 통계</span>
-          <span lang-block-inline="en">Heatmap & Stats</span>
-          <span lang-block-inline="ja">ヒートマップ & 統計</span>
-        </h3>
-        <p>
-          <span lang-block-inline="ko" class="visible">월간 히트맵과 달성률로 나의 성장 패턴을 한눈에 파악하세요. 작은 노력이 쌓여 큰 그림이 됩니다.</span>
-          <span lang-block-inline="en">Monthly heatmaps and completion rates reveal your growth patterns. Small efforts, big picture.</span>
-          <span lang-block-inline="ja">月間ヒートマップと達成率で自分の成長パターンを一目で把握。小さな積み重ねが大きな絵になります。</span>
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-wrap">☁️</div>
-        <h3>
-          <span lang-block-inline="ko" class="visible">iCloud 자동 동기화</span>
-          <span lang-block-inline="en">iCloud Sync</span>
-          <span lang-block-inline="ja">iCloud自動同期</span>
-        </h3>
-        <p>
-          <span lang-block-inline="ko" class="visible">iPhone과 iPad 간 데이터가 자동으로 동기화됩니다. 별도 설정 없이, 어느 기기에서든 이어서 사용하세요.</span>
-          <span lang-block-inline="en">Your habits sync across iPhone and iPad automatically. No setup needed — just seamless continuity.</span>
-          <span lang-block-inline="ja">iPhoneとiPad間でデータが自動同期されます。設定不要で、どのデバイスでもシームレスに続けられます。</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════
-     SPOTLIGHT 1 — Streaks
-══════════════════════════════════════════════ -->
-<section class="spotlight-section">
-  <div class="spotlight">
-    <div class="spotlight-text">
-      <div class="spotlight-badge">
-        <span lang-block-inline="ko" class="visible">🔥 스트릭 시스템</span>
-        <span lang-block-inline="en">🔥 Streak System</span>
-        <span lang-block-inline="ja">🔥 ストリークシステム</span>
-      </div>
-      <h2>
-        <span lang-block="ko" class="visible">매일의 작은 승리가<br>큰 변화를 만듭니다</span>
-        <span lang-block="en">Small daily wins<br>compound into big change</span>
-        <span lang-block="ja">毎日の小さな勝利が<br>大きな変化を生む</span>
-      </h2>
-      <p>
-        <span lang-block-inline="ko" class="visible">꾸준히 완료한 날이 스트릭으로 쌓입니다. 3일, 7일, 14일, 30일, 66일, 100일 — 매 이정표마다 달성 뱃지가 기다립니다.</span>
-        <span lang-block-inline="en">Every day you complete a habit adds to your streak. Milestone badges await at 3, 7, 14, 30, 66, and 100 days.</span>
-        <span lang-block-inline="ja">習慣を完了した日がストリークとして積み重なります。3日、7日、14日、30日、66日、100日 — 節目ごとに達成バッジが待っています。</span>
-      </p>
-      <p>
-        <span lang-block-inline="ko" class="visible">월간 히트맵으로 한 달 전체 패턴을 한눈에 확인하고, 나의 성장 흐름을 시각적으로 느껴보세요.</span>
-        <span lang-block-inline="en">The monthly heatmap shows your full pattern at a glance — a visual record of your growth.</span>
-        <span lang-block-inline="ja">月間ヒートマップで1ヶ月全体のパターンを一目で確認し、自分の成長の流れを視覚的に実感しましょう。</span>
+    <div class="faq-item">
+      <p class="faq-q">My streak disappeared.</p>
+      <p class="faq-a">
+        Streaks reset if a habit isn't completed on its scheduled day.
+        If you missed a day by accident, use the <strong>Retroactive Completion</strong> feature
+        to log habits up to 3 days back. Long-press a habit on the home screen
+        or tap a past date in the habit detail view.
       </p>
     </div>
-    <div class="spotlight-phone">
-      <div class="spotlight-phone-frame">
-        <div class="spotlight-phone-screen">
-          <div class="phone-di"></div>
-          <div class="mock-stats">
-            <div class="mock-statusbar">
-              <span>9:41</span>
-              <div style="display:flex;gap:4px;align-items:center;">
-                <svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.8" fill="currentColor"/><rect x="3.8" y="3.5" width="2.5" height="6.5" rx="0.8" fill="currentColor"/><rect x="7.6" y="1" width="2.5" height="9" rx="0.8" fill="currentColor"/><rect x="11.4" y="0" width="2.5" height="10" rx="0.8" fill="currentColor" opacity="0.25"/></svg>
-                <svg width="20" height="10" viewBox="0 0 20 10"><rect x="0.4" y="0.4" width="16" height="9.2" rx="2.8" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.8"/><rect x="17" y="3" width="2.5" height="4" rx="1.2" fill="currentColor" opacity="0.3"/><rect x="1.5" y="1.5" width="12" height="7" rx="2" fill="currentColor"/></svg>
-              </div>
-            </div>
-            <div class="mock-stats-content">
-              <div class="mock-stats-title" id="stats1-title">통계</div>
-              <div class="mock-heatmap-card">
-                <div class="mock-heatmap-label" id="stats1-month">4월</div>
-                <div class="mock-heatmap-grid" id="heatmap-stats1"></div>
-              </div>
-              <div class="mock-streak-row">
-                <div class="mock-streak-card">
-                  <div class="mock-streak-num">23</div>
-                  <div class="mock-streak-label" id="stats1-best">최고</div>
-                </div>
-                <div class="mock-streak-card">
-                  <div class="mock-streak-num">87<span style="font-size:13px;">%</span></div>
-                  <div class="mock-streak-label" id="stats1-rate">달성률</div>
-                </div>
-                <div class="mock-streak-card">
-                  <div class="mock-streak-num">🔥12</div>
-                  <div class="mock-streak-label" id="stats1-now">현재</div>
-                </div>
-              </div>
-              <div style="margin-top:10px;">
-                <div style="font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.6px;margin-bottom:6px;" id="stats1-milestones">MILESTONES</div>
-                <div style="display:flex;gap:6px;flex-wrap:wrap;">
-                  <div style="background:linear-gradient(135deg,#4A7C59,#2D5C3F);color:#fff;border-radius:10px;padding:5px 9px;font-size:10px;font-weight:700;">🏅 3<span lang-content-milestone="days">일</span></div>
-                  <div style="background:linear-gradient(135deg,#4A7C59,#2D5C3F);color:#fff;border-radius:10px;padding:5px 9px;font-size:10px;font-weight:700;">🥈 7<span lang-content-milestone="days">일</span></div>
-                  <div style="background:linear-gradient(135deg,#4A7C59,#2D5C3F);color:#fff;border-radius:10px;padding:5px 9px;font-size:10px;font-weight:700;">🥇 14<span lang-content-milestone="days">일</span></div>
-                  <div style="background:rgba(74,124,89,0.12);color:#7A9E87;border-radius:10px;padding:5px 9px;font-size:10px;font-weight:600;">30<span lang-content-milestone="days">일</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ── SPOTLIGHT 2 — Grace Day ── -->
-  <div class="spotlight reverse">
-    <div class="spotlight-text">
-      <div class="spotlight-badge">
-        <span lang-block-inline="ko" class="visible">☀️ Grace Day</span>
-        <span lang-block-inline="en">☀️ Grace Day</span>
-        <span lang-block-inline="ja">☀️ Grace Day</span>
-      </div>
-      <h2>
-        <span lang-block="ko" class="visible">완벽하지 않아도<br>괜찮아요</span>
-        <span lang-block="en">Consistency beats<br>perfection</span>
-        <span lang-block="ja">完璧じゃなくても<br>大丈夫</span>
-      </h2>
-      <p>
-        <span lang-block-inline="ko" class="visible">바쁜 날, 몸이 좋지 않은 날 — Grace Day를 사용하면 하루를 쉬어도 스트릭이 끊기지 않습니다. 포기 없이 꾸준함을 이어가세요.</span>
-        <span lang-block-inline="en">Busy day? Not feeling well? Use a Grace Day to take a break without breaking your streak. Keep going without starting over.</span>
-        <span lang-block-inline="ja">忙しい日、体調の悪い日 — Grace Dayを使えばストリークを切らずに一日休めます。ゼロから始め直さずに続けましょう。</span>
-      </p>
-      <p>
-        <span lang-block-inline="ko" class="visible">Grace Day는 긍정 습관에만 사용 가능하며, 연속으로 사용할 수 없습니다. 진짜 꾸준함을 위한 안전망입니다.</span>
-        <span lang-block-inline="en">Available for positive habits only, and cannot be used on consecutive days — a safety net for real consistency.</span>
-        <span lang-block-inline="ja">ポジティブ習慣にのみ使用でき、連続して使用することはできません — 本当の継続のためのセーフティネットです。</span>
+    <div class="faq-item">
+      <p class="faq-q">What is a Grace Day?</p>
+      <p class="faq-a">
+        A Grace Day lets you skip one day without breaking your streak —
+        because consistency matters more than perfection.
+        Grace Days are available for <strong>positive habits only</strong> and cannot be used
+        for avoidance habits. You cannot use Grace Days on consecutive days.
       </p>
     </div>
-    <div class="spotlight-phone">
-      <div class="spotlight-phone-frame">
-        <div class="spotlight-phone-screen">
-          <div class="phone-di"></div>
-          <div class="mock-grace">
-            <div class="mock-statusbar" style="position:relative;top:auto;left:auto;right:auto;padding:6px 12px 0;height:auto;"></div>
-            <div class="mock-grace-badge" id="grace-badge">Grace Day</div>
-            <div class="mock-grace-card">
-              <div class="mock-grace-emoji">🌿</div>
-              <div class="mock-grace-title" id="grace-title">오늘 하루를 쉬어가세요</div>
-              <div class="mock-grace-sub" id="grace-sub">Grace Day를 사용하면 스트릭이 유지됩니다.<br>연속 사용은 불가합니다.</div>
-            </div>
-            <div class="mock-grace-streak">
-              <div class="mock-grace-streak-num">🔥 12</div>
-              <div class="mock-grace-streak-info">
-                <div class="mock-grace-streak-label" id="grace-streak-label">현재 스트릭</div>
-                <div class="mock-grace-streak-sub" id="grace-streak-sub">Grace Day 사용 후에도 유지됩니다</div>
-              </div>
-            </div>
-            <div class="mock-grace-btn" id="grace-btn">Grace Day 사용하기</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ── SPOTLIGHT 3 — Widget ── -->
-  <div class="spotlight">
-    <div class="spotlight-text">
-      <div class="spotlight-badge">
-        <span lang-block-inline="ko" class="visible">📱 위젯 & 잠금화면</span>
-        <span lang-block-inline="en">📱 Widgets & Lock Screen</span>
-        <span lang-block-inline="ja">📱 ウィジェット & ロック画面</span>
-      </div>
-      <h2>
-        <span lang-block="ko" class="visible">앱을 열지 않아도<br>탭 한 번으로 완료</span>
-        <span lang-block="en">Check in without<br>opening the app</span>
-        <span lang-block="ja">アプリを開かずに<br>ワンタップで完了</span>
-      </h2>
-      <p>
-        <span lang-block-inline="ko" class="visible">홈 화면 위젯에서 바로 체크인. iOS 17+ 인터랙티브 위젯으로 앱을 열지 않고도 습관을 완료 처리할 수 있습니다.</span>
-        <span lang-block-inline="en">Complete habits directly from your Home Screen with iOS 17+ interactive widgets. No app launch needed.</span>
-        <span lang-block-inline="ja">iOS 17+インタラクティブウィジェットでホーム画面から直接チェックイン。アプリを起動する必要はありません。</span>
-      </p>
-      <p>
-        <span lang-block-inline="ko" class="visible">소형, 중형, 대형 위젯과 잠금화면 위젯, StandBy 모드까지 — 어디서든 오늘의 습관을 확인하세요.</span>
-        <span lang-block-inline="en">Small, medium, large, Lock Screen widgets, and StandBy mode — your habits are always in view.</span>
-        <span lang-block-inline="ja">小・中・大ウィジェット、ロック画面ウィジェット、StandByモードまで — いつでもどこでも今日の習慣を確認できます。</span>
+    <div class="faq-item">
+      <p class="faq-q">How do avoidance habits work?</p>
+      <p class="faq-a">
+        Set a habit you want to break (e.g., "no social media") and your streak grows
+        every day you resist. At midnight, the day is automatically marked complete
+        if you didn't log a failure. The <strong>CLEAN DAYS</strong> counter shows at a
+        glance how long your clean streak is. Grace Days do not apply to avoidance habits.
       </p>
     </div>
-    <div class="spotlight-phone">
-      <div class="spotlight-phone-frame">
-        <div class="spotlight-phone-screen" style="background:#e8e5e0;">
-          <div class="phone-di"></div>
-          <div style="padding:40px 14px 14px;">
-            <!-- Home Screen mockup -->
-            <div style="text-align:center;margin-bottom:16px;">
-              <div style="font-size:10px;color:#555;font-weight:600;" id="widget-screen-time">9:41</div>
-              <div style="font-size:24px;font-weight:700;color:#222;letter-spacing:-0.5px;" id="widget-home-date">화요일, 4월 1일</div>
-            </div>
-            <!-- Medium widget — matches MediumWidgetView light mode: cream bg, dark text, dividers -->
-            <div style="background:linear-gradient(135deg,#F7F4EF,#EDE9E2);border-radius:20px;padding:12px 14px;margin-bottom:10px;box-shadow:0 4px 16px rgba(0,0,0,0.10);">
-              <!-- Header: 🌱 + title + count -->
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
-                <span style="font-size:13px;">🌱</span>
-                <span style="flex:1;font-size:11px;font-weight:700;color:#2C2C2C;" id="widget-today-habits">오늘의 습관</span>
-                <span style="font-size:11px;font-weight:600;color:#7A9E87;">3/5</span>
-              </div>
-              <!-- Divider -->
-              <div style="height:0.5px;background:#D0CAC0;margin-bottom:8px;"></div>
-              <!-- Habit row 1 — completed (strikethrough) -->
-              <div style="display:flex;align-items:center;gap:7px;margin-bottom:6px;">
-                <div style="width:18px;height:18px;background:#7A9E87;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
-                  <svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-                </div>
-                <span style="font-size:11px;">🧘</span>
-                <span style="flex:1;font-size:10px;font-weight:600;color:#9A9590;text-decoration:line-through;" id="widget-habit1">아침 명상</span>
-                <span style="font-size:9px;color:#7A9E87;">🔥 12</span>
-              </div>
-              <!-- Divider -->
-              <div style="height:0.5px;background:#D0CAC0;margin-bottom:6px;"></div>
-              <!-- Habit row 2 — pending -->
-              <div style="display:flex;align-items:center;gap:7px;">
-                <div style="width:18px;height:18px;border-radius:50%;border:1.5px solid #C5BFB5;flex-shrink:0;"></div>
-                <span style="font-size:11px;">📖</span>
-                <span style="flex:1;font-size:10px;font-weight:600;color:#2C2C2C;" id="widget-habit2">20분 독서</span>
-                <span style="font-size:9px;color:#7A9E87;">🔥 5</span>
-              </div>
-            </div>
-            <!-- Small widgets row -->
-            <div style="display:flex;gap:8px;">
-              <div style="flex:1;background:#fff;border-radius:16px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-                <div style="font-size:9px;color:#7A9E87;font-weight:600;margin-bottom:4px;" id="widget-streak-label">스트릭</div>
-                <div style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:#4A7C59;line-height:1;">🔥12</div>
-                <div style="font-size:9px;color:#7A9E87;margin-top:2px;" id="widget-streak-days">일 연속</div>
-              </div>
-              <div style="flex:1;background:linear-gradient(135deg,#F0A500,#e09600);border-radius:16px;padding:12px;box-shadow:0 2px 8px rgba(240,165,0,0.3);">
-                <div style="font-size:9px;color:rgba(255,255,255,0.8);font-weight:600;margin-bottom:4px;" id="widget-rate-label">달성률</div>
-                <div style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:#fff;line-height:1;">87%</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.75);margin-top:2px;" id="widget-rate-month">이번 달</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ══════════════════════════════════════════════
-     MILESTONE STRIP
-══════════════════════════════════════════════ -->
-<section class="milestone-section">
-  <div class="section-eyebrow">
-    <span lang-block-inline="ko" class="visible">마일스톤</span>
-    <span lang-block-inline="en">Milestones</span>
-    <span lang-block-inline="ja">マイルストーン</span>
-  </div>
-  <h2 class="section-title" style="margin-bottom:12px;">
-    <span lang-block="ko" class="visible">이정표마다 뱃지가 기다립니다</span>
-    <span lang-block="en">A badge at every milestone</span>
-    <span lang-block="ja">節目ごとにバッジが待っています</span>
-  </h2>
-  <p class="section-sub">
-    <span lang-block-inline="ko" class="visible">66일이면 습관이 자동화되고, 100일이면 진짜 내 것이 됩니다.</span>
-    <span lang-block-inline="en">66 days to automaticity. 100 days to make it truly yours.</span>
-    <span lang-block-inline="ja">66日で習慣が自動化され、100日で本当に自分のものになります。</span>
-  </p>
-  <div class="milestone-track">
-    <div class="milestone-chip">
-      <span class="days">3</span>
-      <span class="unit" lang-content-milestone="days">일</span>
-      <span class="badge-emoji">🏅</span>
+    <div class="faq-item">
+      <p class="faq-q">My widget is empty or not loading data.</p>
+      <p class="faq-a">
+        Try these steps in order:
+      </p>
+      <ul style="padding-left: 30px; margin: 8px 0 0; font-size: 15px;">
+        <li>Open the app once to sync data to the widget.</li>
+        <li>Long-press the widget → <strong>Edit Widget</strong> → save the settings.</li>
+        <li>Remove the widget and add it again if the issue persists.</li>
+        <li>Restarting your iPhone resolves most widget issues.</li>
+      </ul>
     </div>
-    <div class="milestone-chip">
-      <span class="days">7</span>
-      <span class="unit" lang-content-milestone="days">일</span>
-      <span class="badge-emoji">🥈</span>
-    </div>
-    <div class="milestone-chip">
-      <span class="days">14</span>
-      <span class="unit" lang-content-milestone="days">일</span>
-      <span class="badge-emoji">🥇</span>
-    </div>
-    <div class="milestone-chip">
-      <span class="days">30</span>
-      <span class="unit" lang-content-milestone="days">일</span>
-      <span class="badge-emoji">💎</span>
-    </div>
-    <div class="milestone-chip">
-      <span class="days">66</span>
-      <span class="unit" lang-content-milestone="days">일</span>
-      <span class="badge-emoji">🌟</span>
-    </div>
-    <div class="milestone-chip">
-      <span class="days">100</span>
-      <span class="unit" lang-content-milestone="days">일</span>
-      <span class="badge-emoji">🏆</span>
-    </div>
-  </div>
-</section>
 
-<!-- ══════════════════════════════════════════════
-     FEATURES LIST
-══════════════════════════════════════════════ -->
-<section class="features-list-section">
-  <div class="section-wrap">
-    <div class="section-eyebrow">
-      <span lang-block-inline="ko" class="visible">전체 기능</span>
-      <span lang-block-inline="en">All Features</span>
-      <span lang-block-inline="ja">全機能</span>
+    <div class="faq-item">
+      <p class="faq-q">Apple Health integration isn't working.</p>
+      <p class="faq-a">
+        In the current version, Apple Health data is checked <strong>while the app is open</strong>.
+        Go to iOS Settings → Health → Data Access &amp; Devices → Virmina and make sure
+        the required categories (Steps, Workouts, Sleep, Mindfulness) are enabled.
+      </p>
     </div>
-    <h2 class="section-title">
-      <span lang-block="ko" class="visible">필요한 건 다 있어요</span>
-      <span lang-block="en">Everything you need</span>
-      <span lang-block="ja">必要なものがすべて揃っています</span>
-    </h2>
-    <p class="section-sub">
-      <span lang-block-inline="ko" class="visible">필요 없는 건 없애고, 있어야 할 건 꼭 챙겼습니다.</span>
-      <span lang-block-inline="en">Nothing unnecessary. Nothing missing.</span>
-      <span lang-block-inline="ja">不要なものは削除し、必要なものはしっかり揃えました。</span>
-    </p>
-    <div class="features-list-grid" id="features-list"></div>
-  </div>
-</section>
 
-<!-- ══════════════════════════════════════════════
-     DOWNLOAD CTA
-══════════════════════════════════════════════ -->
-<section class="download-section">
-  <div class="download-card">
-    <div class="app-icon-large">🌱</div>
-    <h2>
-      <span lang-block="ko" class="visible">오늘부터 스트릭을 시작하세요</span>
-      <span lang-block="en">Your streak starts today</span>
-      <span lang-block="ja">今日からストリークを始めよう</span>
-    </h2>
+    <div class="faq-item">
+      <p class="faq-q">iCloud sync isn't working.</p>
+      <p class="faq-a">
+        Both devices must be <strong>signed in to iCloud with the same Apple ID</strong>.
+        Go to iOS Settings → [your name] → iCloud and make sure Virmina is toggled on.
+        Also check your internet connection. Changes can take a few minutes to propagate.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Can I back up or transfer my habit data?</p>
+      <p class="faq-a">
+        Go to <strong>Settings → Export Data</strong> in the app to save all habits and records
+        as a JSON file. Use <strong>Settings → Import Data</strong> to restore after reinstalling
+        or switching devices. If you use iCloud, your data restores automatically.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Will my data be deleted if I delete the app?</p>
+      <p class="faq-a">
+        Local data on your device is deleted with the app.
+        If you were signed in to iCloud, data stored in CloudKit is preserved and
+        will restore automatically after reinstalling. We recommend exporting a JSON
+        backup before deleting to be safe.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">I'm not receiving reminders.</p>
+      <p class="faq-a">
+        Check iOS Settings → Notifications → Virmina and make sure notifications are allowed.
+        Also confirm that a reminder time is set for each habit in the habit detail screen.
+        Do Not Disturb or Focus modes may suppress notifications.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How do I use Siri or Shortcuts?</p>
+      <p class="faq-a">
+        On iOS 16 or later, say "Complete [habit name] in Virmina" to Siri,
+        or add Virmina actions in the Shortcuts app.
+        Supported actions: Complete Habit, Skip Today, Check Streak, Today's Progress, Add Habit.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">What is the AI Habit Coach?</p>
+      <p class="faq-a">
+        The AI Habit Coach analyzes your check-in history to surface personal insights —
+        your strongest day of the week, your peak focus hour, and how your mood connects
+        to your consistency. Insights appear as cards on the Stats screen.
+        All analysis happens on-device. No server, no account required.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">When do AI Coach insights appear?</p>
+      <p class="faq-a">
+        The coach needs a few check-ins to start learning. You can track its progress
+        on the AI Coach card in the Stats screen. The fewer habits you track,
+        the faster the first insights arrive.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Some AI Coach insights are locked. Why?</p>
+      <p class="faq-a">
+        The top insight is always free. Additional insights (2nd and beyond) are a premium feature.
+        Tap a locked insight to learn more about the premium unlock.
+      </p>
+    </div>
+  </section>
+
+  <!-- Troubleshooting -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🔧</div>
+      <h2>General Troubleshooting</h2>
+    </div>
+
+    <div class="highlight">
+      Most issues are resolved by <strong>force-closing the app and reopening it</strong>,
+      or by <strong>restarting your iPhone</strong>.
+    </div>
+
+    <ul>
+      <li><strong>App is slow or freezing</strong> — Force-close the app (swipe up in the app switcher) and relaunch.</li>
+      <li><strong>Widget not updating</strong> — Opening the app refreshes widget data. Saving widget settings triggers an immediate refresh.</li>
+      <li><strong>Live Activity not showing</strong> — Go to iOS Settings → Virmina and make sure Live Activities is enabled.</li>
+      <li><strong>iCloud sync delay</strong> — Check your network connection and iCloud settings. Changes may take a few minutes to sync.</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">✉️</div>
+      <h2>Contact Us</h2>
+    </div>
     <p>
-      <span lang-block-inline="ko" class="visible">좋은 습관을 시작하고, 나쁜 습관을 끊을 준비가 됐나요?<br>Virmina와 함께라면 꾸준히 할 수 있습니다.</span>
-      <span lang-block-inline="en">Build the habits you've been putting off.<br>Break the ones holding you back.</span>
-      <span lang-block-inline="ja">ずっと先延ばしにしていた習慣を始めましょう。<br>続けられない習慣なんてありません。</span>
+      If your issue isn't covered above or you have feedback to share,
+      please reach out by email. We'll get back to you as soon as possible.
     </p>
-    <div class="hero-cta-group" style="margin-bottom:0;">
-      <a class="btn-appstore" id="btn-appstore-download" href="https://apps.apple.com/us/app/virmina-minimal-habit-tracker/id6761351988" target="_blank" rel="noopener">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="#000"/>
-        </svg>
-        <div>
-          <span class="btn-appstore-sub">
-            <span lang-block-inline="ko" class="visible">App Store에서 다운로드</span>
-            <span lang-block-inline="en">Download on the</span>
-            <span lang-block-inline="ja">App Storeからダウンロード</span>
-          </span>
-          <span class="btn-appstore-main">App Store</span>
-        </div>
-      </a>
+    <div class="highlight">
+      When contacting support, please include your <strong>iOS version</strong>,
+      <strong>device model</strong>, and <strong>steps to reproduce</strong> the issue
+      for faster assistance.
     </div>
+    <div class="contact-card">
+      <div class="icon">📬</div>
+      <div>
+        <div class="label">Email</div>
+        <div class="value"><a href="mailto:hoons.labs@gmail.com">hoons.labs@gmail.com</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Policy -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <h2>Privacy Policy</h2>
+    </div>
+    <p>
+      Read the Virmina Privacy Policy at the link below.
+    </p>
+    <p>
+      <a href="https://hoonslabs.github.io/privacy/virmina/">hoonslabs.github.io/privacy/virmina/</a>
+    </p>
+  </section>
+
+</main>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     JAPANESE VERSION
+══════════════════════════════════════════════ -->
+<div lang-block="ja" id="content-ja">
+<main class="container">
+
+  <div class="meta-badge">
+    <span class="dot"></span>
+    最終更新: 2026年4月27日
   </div>
-</section>
+
+  <!-- よくある質問 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">💬</div>
+      <h2>よくある質問（FAQ）</h2>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">ストリークが突然消えました。</p>
+      <p class="faq-a">
+        ストリークは、その日に習慣を完了しないと自動的にリセットされます。
+        うっかり忘れた場合は、<strong>さかのぼり完了</strong>機能で最大3日前まで記録を追加できます。
+        ホーム画面で習慣を長押しするか、習慣の詳細画面で日付を選択してみてください。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Grace Dayとは何ですか？</p>
+      <p class="faq-a">
+        Grace Dayは、1日休んでもストリークが維持される猶予機能です。
+        完璧じゃなくても続けられるように設計されています。
+        <strong>ポジティブ習慣</strong>にのみ適用でき、回避習慣には使えません。
+        Grace Dayは連続して使用できません。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">回避習慣（Avoidance Habit）はどのように動作しますか？</p>
+      <p class="faq-a">
+        やめたい悪い習慣を登録すると、その日我慢するとストリークが伸びます。
+        アプリを開いて別途チェックしなくても、日付が変わると自動的に完了処理されます。
+        <strong>CLEAN DAYS</strong> カウンターで何日間続いているか一目で確認できます。
+        Grace Dayは回避習慣には適用されません。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">ウィジェットが空になっているか、データを読み込みません。</p>
+      <p class="faq-a">
+        以下の順に確認してみてください。
+      </p>
+      <ul style="padding-left: 30px; margin: 8px 0 0; font-size: 15px;">
+        <li>アプリを一度開いてデータを同期する。</li>
+        <li>ホーム画面でウィジェットを長押し → <strong>ウィジェットを編集</strong>から設定を保存する。</li>
+        <li>それでも解決しない場合は、ウィジェットを削除して再追加する。</li>
+        <li>iPhoneを再起動すると、ほとんどのウィジェット問題が解決します。</li>
+      </ul>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Apple Health連携が動作しません。</p>
+      <p class="faq-a">
+        現在のバージョンでは、<strong>アプリが開いている間</strong>のみApple Healthのデータを確認します。
+        iOSの設定 → ヘルスケア → データアクセスとデバイス でVirminaに必要な項目
+        （歩数、ワークアウト、睡眠、マインドフルネス）が有効になっているかご確認ください。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">iCloud同期ができません。</p>
+      <p class="faq-a">
+        同期が機能するには、2台のデバイスがともに<strong>同じApple IDでiCloudにサインイン</strong>されている必要があります。
+        iOSの設定 → [ご自身の名前] → iCloud でVirminaがオンになっているかご確認ください。
+        インターネット接続もあわせてご確認ください。変更の反映には数分かかる場合があります。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">習慣データをバックアップしたり移行したりできますか？</p>
+      <p class="faq-a">
+        アプリ内の<strong>設定 → データのエクスポート</strong>から、習慣と記録の全データをJSONファイルとして保存できます。
+        機種変更や再インストール後は<strong>設定 → データのインポート</strong>で復元できます。
+        iCloudをご利用中の場合は、別途バックアップなしで自動復元されます。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">アプリを削除するとデータも消えますか？</p>
+      <p class="faq-a">
+        端末内のローカルデータはアプリ削除時に削除されます。
+        iCloudにサインインしていた場合、CloudKitに保存されたデータは保持され、
+        再インストール後に自動復元されます。確実な保管のために、事前にJSONエクスポートをおすすめします。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">通知が届きません。</p>
+      <p class="faq-a">
+        iOSの設定 → 通知 → Virminaで通知が許可されているかご確認ください。
+        アプリ内の各習慣の詳細画面で通知時刻が設定されているかもご確認ください。
+        おやすみモードや集中モードが有効の場合、通知がブロックされることがあります。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Siriやショートカットはどうやって使いますか？</p>
+      <p class="faq-a">
+        iOS 16以降で「Virminaで[習慣名]を完了して」とSiriに話しかけるか、
+        ショートカットアプリからVirminaのアクションを追加できます。
+        対応アクション：習慣を完了、今日をスキップ、ストリークを確認、今日の進捗を確認、習慣を追加。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">AIハビットコーチとは何ですか？</p>
+      <p class="faq-a">
+        AIハビットコーチは、チェックイン履歴を分析して個人の習慣パターンをインサイトとして提供する機能です。
+        最も習慣が続く曜日、集中力が高い時間帯、気分と達成率の相関関係などを統計画面のカードで表示します。
+        すべての分析はオンデバイスで行われ、サーバーへの送信やアカウントは不要です。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">AIコーチのインサイトはいつ表示されますか？</p>
+      <p class="faq-a">
+        コーチが学習を開始するには、ある程度のチェックインが必要です。
+        統計画面のAIコーチカードで学習の進捗状況を確認できます。
+        追跡する習慣が少ないほど、最初のインサイトが早く届きます。
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">AIコーチのインサイトの一部がロックされています。</p>
+      <p class="faq-a">
+        最初のインサイトは無料でご利用いただけます。追加のインサイト（2番目以降）はプレミアム機能です。
+        ロックされたインサイトをタップすると、プレミアム機能の詳細を確認できます。
+      </p>
+    </div>
+  </section>
+
+  <!-- 一般的なトラブルシューティング -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🔧</div>
+      <h2>一般的なトラブルシューティング</h2>
+    </div>
+
+    <div class="highlight">
+      ほとんどの問題は<strong>アプリを完全に終了して再起動</strong>するか、<strong>iPhoneを再起動</strong>することで解決します。
+    </div>
+
+    <ul>
+      <li><strong>アプリが重い・フリーズする</strong> — アプリを完全に終了（アプリスイッチャーで上にスワイプ）して再起動してください。</li>
+      <li><strong>ウィジェットが更新されない</strong> — アプリを開くとウィジェットデータが更新されます。ウィジェットの設定を保存すると即座に反映されます。</li>
+      <li><strong>ライブアクティビティが表示されない</strong> — iOSの設定 → Virmina → ライブアクティビティを許可がオンになっているかご確認ください。</li>
+      <li><strong>iCloud同期の遅延</strong> — ネットワーク状態とiCloudの設定をご確認ください。変更の反映には数分かかる場合があります。</li>
+    </ul>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">✉️</div>
+      <h2>お問い合わせ</h2>
+    </div>
+    <p>
+      FAQで解決しない問題やご意見がある場合は、メールでお気軽にお問い合わせください。
+      できるだけ早くご返信いたします。
+    </p>
+    <div class="highlight">
+      お問い合わせの際は<strong>iOSのバージョン</strong>、<strong>デバイスのモデル</strong>、<strong>問題の再現手順</strong>をお知らせいただくと、より迅速にサポートできます。
+    </div>
+    <div class="contact-card">
+      <div class="icon">📬</div>
+      <div>
+        <div class="label">メール</div>
+        <div class="value"><a href="mailto:hoons.labs@gmail.com">hoons.labs@gmail.com</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- プライバシーポリシー -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <h2>プライバシーポリシー</h2>
+    </div>
+    <p>
+      Virminaのプライバシーポリシーは以下のリンクからご確認いただけます。
+    </p>
+    <p>
+      <a href="https://hoonslabs.github.io/privacy/virmina/">hoonslabs.github.io/privacy/virmina/</a>
+    </p>
+  </section>
+
+</main>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     GERMAN VERSION
+══════════════════════════════════════════════ -->
+<div lang-block="de" id="content-de">
+<main class="container">
+
+  <div class="meta-badge">
+    <span class="dot"></span>
+    Zuletzt aktualisiert: 27. April 2026
+  </div>
+
+  <!-- Häufig gestellte Fragen -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">💬</div>
+      <h2>Häufig gestellte Fragen (FAQ)</h2>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Mein Streak ist plötzlich verschwunden.</p>
+      <p class="faq-a">
+        Streaks werden zurückgesetzt, wenn eine Gewohnheit an einem geplanten Tag nicht abgeschlossen wird.
+        Wenn du einen Tag versehentlich verpasst hast, nutze die Funktion <strong>Nachträgliche Erfassung</strong>,
+        um Einträge bis zu 3 Tage rückwirkend hinzuzufügen.
+        Drücke lange auf eine Gewohnheit auf dem Startbildschirm oder wähle ein vergangenes Datum in der Gewohnheitsdetailansicht.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Was ist ein Grace Day?</p>
+      <p class="faq-a">
+        Ein Grace Day ermöglicht es dir, einen Tag auszulassen, ohne deinen Streak zu unterbrechen —
+        denn Beständigkeit ist wichtiger als Perfektion.
+        Grace Days sind nur für <strong>positive Gewohnheiten</strong> verfügbar und können nicht
+        für Vermeidungsgewohnheiten genutzt werden. Grace Days können nicht an aufeinanderfolgenden Tagen verwendet werden.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Wie funktionieren Vermeidungsgewohnheiten (Avoidance Habits)?</p>
+      <p class="faq-a">
+        Trage eine schlechte Gewohnheit ein, die du aufgeben möchtest (z. B. „kein Social Media"),
+        und dein Streak wächst jeden Tag, an dem du widerstehst. Um Mitternacht wird der Tag automatisch
+        als abgeschlossen markiert, wenn du keinen Rückfall eingetragen hast.
+        Der <strong>CLEAN DAYS</strong>-Zähler zeigt auf einen Blick, wie lange dein Streak bereits andauert.
+        Grace Days gelten nicht für Vermeidungsgewohnheiten.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Mein Widget ist leer oder lädt keine Daten.</p>
+      <p class="faq-a">
+        Versuche diese Schritte der Reihe nach:
+      </p>
+      <ul style="padding-left: 30px; margin: 8px 0 0; font-size: 15px;">
+        <li>Öffne die App einmal, um Daten mit dem Widget zu synchronisieren.</li>
+        <li>Drücke lange auf das Widget → <strong>Widget bearbeiten</strong> → Einstellungen speichern.</li>
+        <li>Entferne das Widget und füge es erneut hinzu, wenn das Problem weiterhin besteht.</li>
+        <li>Ein Neustart deines iPhones löst die meisten Widget-Probleme.</li>
+      </ul>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Die Apple Health-Integration funktioniert nicht.</p>
+      <p class="faq-a">
+        In der aktuellen Version werden Apple Health-Daten nur <strong>geprüft, während die App geöffnet ist</strong>.
+        Gehe zu iOS-Einstellungen → Gesundheit → Datenzugriff &amp; Geräte → Virmina und stelle sicher,
+        dass die erforderlichen Kategorien (Schritte, Training, Schlaf, Achtsamkeit) aktiviert sind.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Die iCloud-Synchronisierung funktioniert nicht.</p>
+      <p class="faq-a">
+        Beide Geräte müssen <strong>mit derselben Apple ID bei iCloud angemeldet</strong> sein.
+        Gehe zu iOS-Einstellungen → [dein Name] → iCloud und stelle sicher, dass Virmina aktiviert ist.
+        Überprüfe auch deine Internetverbindung. Änderungen können einige Minuten brauchen, um sich zu synchronisieren.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Kann ich meine Gewohnheitsdaten sichern oder übertragen?</p>
+      <p class="faq-a">
+        Gehe zu <strong>Einstellungen → Daten exportieren</strong> in der App, um alle Gewohnheiten und Einträge
+        als JSON-Datei zu speichern. Nutze <strong>Einstellungen → Daten importieren</strong>, um nach einer
+        Neuinstallation oder einem Gerätewechsel wiederherzustellen. Wenn du iCloud verwendest, werden deine Daten automatisch wiederhergestellt.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Werden meine Daten gelöscht, wenn ich die App lösche?</p>
+      <p class="faq-a">
+        Lokale Daten auf deinem Gerät werden zusammen mit der App gelöscht.
+        Wenn du bei iCloud angemeldet warst, bleiben die in CloudKit gespeicherten Daten erhalten
+        und werden nach der Neuinstallation automatisch wiederhergestellt. Wir empfehlen, vor dem Löschen einen JSON-Export zu erstellen.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Ich erhalte keine Erinnerungen.</p>
+      <p class="faq-a">
+        Überprüfe iOS-Einstellungen → Mitteilungen → Virmina und stelle sicher, dass Benachrichtigungen erlaubt sind.
+        Bestätige auch, dass in der Gewohnheitsdetailansicht eine Erinnerungszeit festgelegt ist.
+        Modi wie „Nicht stören" oder Fokus-Modi können Benachrichtigungen unterdrücken.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Wie nutze ich Siri oder Kurzbefehle?</p>
+      <p class="faq-a">
+        Unter iOS 16 oder höher sage Siri „Schließe [Gewohnheitsname] in Virmina ab" oder
+        füge Virmina-Aktionen in der Kurzbefehle-App hinzu.
+        Unterstützte Aktionen: Gewohnheit abschließen, Heute überspringen, Streak prüfen, Heutigen Fortschritt prüfen, Gewohnheit hinzufügen.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Was ist der KI-Gewohnheitscoach?</p>
+      <p class="faq-a">
+        Der KI-Gewohnheitscoach analysiert deine Check-in-Daten, um persönliche Einblicke zu liefern —
+        deinen stärksten Wochentag, deine produktivste Stunde und wie deine Stimmung mit deiner Beständigkeit zusammenhängt.
+        Einblicke erscheinen als Karten auf dem Statistikbildschirm.
+        Die gesamte Analyse erfolgt auf dem Gerät. Kein Server, kein Konto erforderlich.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Wann erscheinen die KI-Coach-Einblicke?</p>
+      <p class="faq-a">
+        Der Coach benötigt einige Check-ins, um zu lernen. Du kannst seinen Fortschritt
+        auf der KI-Coach-Karte im Statistikbildschirm verfolgen. Je weniger Gewohnheiten du verfolgst,
+        desto schneller erscheinen die ersten Einblicke.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Einige KI-Coach-Einblicke sind gesperrt. Warum?</p>
+      <p class="faq-a">
+        Der erste Einblick ist immer kostenlos. Weitere Einblicke (ab dem 2.) sind eine Premium-Funktion.
+        Tippe auf einen gesperrten Einblick, um mehr über das Premium-Upgrade zu erfahren.
+      </p>
+    </div>
+  </section>
+
+  <!-- Allgemeine Fehlerbehebung -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🔧</div>
+      <h2>Allgemeine Fehlerbehebung</h2>
+    </div>
+
+    <div class="highlight">
+      Die meisten Probleme lassen sich durch <strong>vollständiges Schließen und erneutes Öffnen der App</strong>
+      oder durch <strong>Neustart deines iPhones</strong> lösen.
+    </div>
+
+    <ul>
+      <li><strong>App ist langsam oder friert ein</strong> — Schließe die App vollständig (im App-Umschalter nach oben wischen) und starte sie neu.</li>
+      <li><strong>Widget aktualisiert sich nicht</strong> — Das Öffnen der App aktualisiert die Widget-Daten. Das Speichern der Widget-Einstellungen löst eine sofortige Aktualisierung aus.</li>
+      <li><strong>Live Activity wird nicht angezeigt</strong> — Gehe zu iOS-Einstellungen → Virmina und stelle sicher, dass Live Activities aktiviert ist.</li>
+      <li><strong>iCloud-Synchronisierungsverzögerung</strong> — Überprüfe deine Netzwerkverbindung und iCloud-Einstellungen. Änderungen können einige Minuten zur Synchronisierung benötigen.</li>
+    </ul>
+  </section>
+
+  <!-- Kontakt -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">✉️</div>
+      <h2>Kontakt</h2>
+    </div>
+    <p>
+      Wenn dein Problem oben nicht behandelt wird oder du Feedback teilen möchtest,
+      schreibe uns eine E-Mail. Wir antworten so schnell wie möglich.
+    </p>
+    <div class="highlight">
+      Bitte gib beim Kontakt deine <strong>iOS-Version</strong>,
+      dein <strong>Gerätemodell</strong> und <strong>Schritte zur Reproduktion</strong> des Problems an,
+      damit wir dir schneller helfen können.
+    </div>
+    <div class="contact-card">
+      <div class="icon">📬</div>
+      <div>
+        <div class="label">E-Mail</div>
+        <div class="value"><a href="mailto:hoons.labs@gmail.com">hoons.labs@gmail.com</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Datenschutzerklärung -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <h2>Datenschutzerklärung</h2>
+    </div>
+    <p>
+      Die Datenschutzerklärung von Virmina findest du unter folgendem Link.
+    </p>
+    <p>
+      <a href="https://hoonslabs.github.io/privacy/virmina/">hoonslabs.github.io/privacy/virmina/</a>
+    </p>
+  </section>
+
+</main>
+</div><!-- /content-de -->
 
 <!-- ── Footer ──────────────────────────────── -->
 <footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="footer-brand-icon">🌱</div>
-      <div>
-        <div class="footer-brand-name">Virmina</div>
-        <div style="font-size:11px;color:var(--muted);">by Hoon's Labs</div>
-      </div>
-    </div>
-    <nav class="footer-links">
-      <a href="https://hoonslabs.github.io/privacy/virmina/">
-        <span lang-block-inline="ko" class="visible">개인정보 처리방침</span>
-        <span lang-block-inline="en">Privacy Policy</span>
-        <span lang-block-inline="ja">プライバシーポリシー</span>
-      </a>
-      <a href="https://hoonslabs.github.io/support/virmina/">
-        <span lang-block-inline="ko" class="visible">고객 지원</span>
-        <span lang-block-inline="en">Support</span>
-        <span lang-block-inline="ja">サポート</span>
-      </a>
-      <a href="mailto:hoons.labs@gmail.com">
-        <span lang-block-inline="ko" class="visible">문의하기</span>
-        <span lang-block-inline="en">Contact</span>
-        <span lang-block-inline="ja">お問い合わせ</span>
-      </a>
-    </nav>
-    <p class="footer-copy">© 2026 Hoon's Labs</p>
-  </div>
+  <p lang-block="ko">© 2026 Hoon's Labs · <a href="https://hoonslabs.github.io/privacy/virmina/">개인정보 처리방침</a> · <a href="https://hoonslabs.github.io/">hoonslabs.github.io</a></p>
+  <p lang-block="en">© 2026 Hoon's Labs · <a href="https://hoonslabs.github.io/privacy/virmina/">Privacy Policy</a> · <a href="https://hoonslabs.github.io/">hoonslabs.github.io</a></p>
+  <p lang-block="ja">© 2026 Hoon's Labs · <a href="https://hoonslabs.github.io/privacy/virmina/">プライバシーポリシー</a> · <a href="https://hoonslabs.github.io/">hoonslabs.github.io</a></p>
+  <p lang-block="de">© 2026 Hoon's Labs · <a href="https://hoonslabs.github.io/privacy/virmina/">Datenschutzerklärung</a> · <a href="https://hoonslabs.github.io/">hoonslabs.github.io</a></p>
 </footer>
 
 <script>
-  /* ── i18n Data ─────────────────────────────────────────── */
-  const i18n = {
-    ko: {
-      mainTitle:       '화, 4월 1일',
-      mainProgressCnt: '3/5 완료',
-      mainProgressLbl: '거의 다 왔어요!',
-      mainProgressPct: '60%',
-      mainInProgress:  '진행 중 (2)',
-      habits: [
-        { e:'🧘', color:'#4A7C59', name:'아침 명상', streak:'🔥 14일 연속', done:true  },
-        { e:'💧', color:'#5B8DD9', name:'물 마시기', streak:'🔥 7일 연속',  done:true  },
-        { e:'📖', color:'#F0A500', name:'20분 독서', streak:'🔥 42일 연속', done:true  },
-        { e:'🚶', color:'#6FCBA0', name:'저녁 산책', streak:'새로운 시작',  done:false, streakNew:true },
-        { e:'📝', color:'#E8A87C', name:'저널 쓰기', streak:'🔥 3일 연속',  done:false },
-      ],
-      statsTitle: '통계',
-      statsMonth: '4월',
-      statsBest:  '최고',
-      statsRate:  '달성률',
-      statsNow:   '현재',
-      statsMilestonesLabel: '달성 뱃지',
-      rightWidgetLabel:    '홈 화면 위젯',
-      rightWidgetSub:      '오늘',
-      rightWidgetStreak:   '🔥 12일 연속',
-      rightLockLabel:      '잠금화면 위젯도 지원',
-      graceBadge:        'Grace Day',
-      graceTitle:        '오늘 하루를 쉬어가세요',
-      graceSub:          'Grace Day를 사용하면 스트릭이 유지됩니다.\n연속 사용은 불가합니다.',
-      graceStreakLabel:  '현재 스트릭',
-      graceStreakSub:    'Grace Day 사용 후에도 유지됩니다',
-      graceBtn:          'Grace Day 사용하기',
-      widgetScreenTime:  '9:41',
-      widgetHomeDate:    '화요일, 4월 1일',
-      widgetTodayHabits: '오늘의 습관',
-      widgetHabit1:      '아침 명상',
-      widgetHabit2:      '20분 독서',
-      widgetStreakLabel:  '스트릭',
-      widgetStreakDays:   '일 연속',
-      widgetRateLabel:   '달성률',
-      widgetRateMonth:   '이번 달',
-      milestoneUnit:     '일',
-      features: [
-        { icon:'✅', title:'탭 한 번 체크인',          desc:'빠르고 직관적인 UX로 3초 안에 완료' },
-        { icon:'🔥', title:'스트릭 & 마일스톤',         desc:'3·7·14·30·66·100일 달성 뱃지' },
-        { icon:'☀️', title:'Grace Day',               desc:'하루 쉬어도 스트릭 유지' },
-        { icon:'🚫', title:'회피 습관',                desc:'나쁜 습관 추적 & 자정 자동 완료' },
-        { icon:'📱', title:'홈·잠금화면 위젯',          desc:'iOS 17 인터랙티브 위젯으로 앱 없이 체크인' },
-        { icon:'📊', title:'월간 히트맵',              desc:'성장 패턴을 한눈에 시각화' },
-        { icon:'🔔', title:'맞춤 알림',               desc:'습관별 원하는 시간에 알림 설정' },
-        { icon:'❤️', title:'Apple Health 연동',       desc:'걸음·운동·수면·마음챙기기 자동 완료' },
-        { icon:'☁️', title:'iCloud 동기화',           desc:'iPhone·iPad 간 자동 동기화' },
-        { icon:'↩️', title:'소급 완료',               desc:'최대 3일 전 기록 추가 가능' },
-        { icon:'💾', title:'데이터 내보내기/가져오기',   desc:'JSON 백업 & 언제든 복원' },
-        { icon:'🌙', title:'다크 모드',               desc:'시스템 설정에 따라 자동 전환' },
-        { icon:'📋', title:'iPad 완벽 지원',           desc:'사이드바 + 상세 패널 Split View, iPad 전용 Large 위젯' },
-        { icon:'🎙️', title:'Siri 단축어',             desc:'음성으로 습관 체크인 & 오늘 진행률 확인' },
-        { icon:'🏝️', title:'Dynamic Island',          desc:'Live Activities로 잠금화면에서 진행 상황 실시간 표시' },
-        { icon:'🔍', title:'Spotlight 검색',           desc:'홈 화면에서 습관 이름으로 바로 검색' },
-        { icon:'🎛️', title:'제어 센터 위젯',           desc:'제어 센터에서 빠른 체크인' },
-        { icon:'📈', title:'습관별 상세 통계',          desc:'습관당 현재/최장 스트릭, 달성률, 설정 정보 한눈에' },
-      ],
-    },
-    en: {
-      mainTitle:       'Tue, Apr 1',
-      mainProgressCnt: '3/5 Done',
-      mainProgressLbl: 'Almost there!',
-      mainProgressPct: '60%',
-      mainInProgress:  'In Progress (2)',
-      habits: [
-        { e:'🧘', color:'#4A7C59', name:'Morning Meditation', streak:'🔥 14 days', done:true  },
-        { e:'💧', color:'#5B8DD9', name:'Drink Water',        streak:'🔥 7 days',  done:true  },
-        { e:'📖', color:'#F0A500', name:'Read 20 Minutes',    streak:'🔥 42 days', done:true  },
-        { e:'🚶', color:'#6FCBA0', name:'Evening Walk',       streak:'New start',  done:false, streakNew:true },
-        { e:'📝', color:'#E8A87C', name:'Journaling',         streak:'🔥 3 days',  done:false },
-      ],
-      statsTitle: 'Statistics',
-      statsMonth: 'April',
-      statsBest:  'Best',
-      statsRate:  'Rate',
-      statsNow:   'Now',
-      statsMilestonesLabel: 'MILESTONES',
-      rightWidgetLabel:    'HOME SCREEN WIDGET',
-      rightWidgetSub:      'Today',
-      rightWidgetStreak:   '🔥 12-day streak',
-      rightLockLabel:      'Lock Screen widgets also supported',
-      graceBadge:        'Grace Day',
-      graceTitle:        'Take a day off',
-      graceSub:          'Your streak stays intact with a Grace Day.\nCannot be used on consecutive days.',
-      graceStreakLabel:  'Current Streak',
-      graceStreakSub:    'Preserved even after using Grace Day',
-      graceBtn:          'Use Grace Day',
-      widgetScreenTime:  '9:41',
-      widgetHomeDate:    'Tuesday, April 1',
-      widgetTodayHabits: "Today's Habits",
-      widgetHabit1:      'Morning Meditation',
-      widgetHabit2:      'Read 20 Minutes',
-      widgetStreakLabel:  'Streak',
-      widgetStreakDays:   'days',
-      widgetRateLabel:   'Rate',
-      widgetRateMonth:   'This month',
-      milestoneUnit:     'days',
-      features: [
-        { icon:'✅', title:'One-tap check-in',        desc:'Done in 3 seconds — fast and intuitive' },
-        { icon:'🔥', title:'Streaks & Milestones',     desc:'Badges at 3, 7, 14, 30, 66, and 100 days' },
-        { icon:'☀️', title:'Grace Day',               desc:'Skip a day without breaking your streak' },
-        { icon:'🚫', title:'Avoidance Habits',         desc:'Track bad habits — auto-completes at midnight' },
-        { icon:'📱', title:'Home & Lock Screen Widgets',desc:'iOS 17 interactive widgets — no app needed' },
-        { icon:'📊', title:'Monthly Heatmap',          desc:'Visualize your growth pattern at a glance' },
-        { icon:'🔔', title:'Custom Reminders',         desc:'Set a reminder time per habit' },
-        { icon:'❤️', title:'Apple Health',             desc:'Auto-complete steps, workouts, sleep & more' },
-        { icon:'☁️', title:'iCloud Sync',              desc:'Seamless sync across iPhone and iPad' },
-        { icon:'↩️', title:'Retroactive Completion',   desc:'Log missed habits up to 3 days back' },
-        { icon:'💾', title:'Export & Import',          desc:'JSON backup — restore anytime' },
-        { icon:'🌙', title:'Dark Mode',               desc:'Automatic dark/light mode switching' },
-        { icon:'📋', title:'iPad Support',             desc:'Split View sidebar + detail panel, iPad Large widget' },
-        { icon:'🎙️', title:'Siri Shortcuts',           desc:'Check in habits or ask your progress by voice' },
-        { icon:'🏝️', title:'Dynamic Island',           desc:'Live Activities show your progress on the Lock Screen' },
-        { icon:'🔍', title:'Spotlight Search',          desc:'Find any habit from your Home Screen search' },
-        { icon:'🎛️', title:'Control Center Widget',    desc:'Quick check-in right from Control Center' },
-        { icon:'📈', title:'Habit Detail Stats',        desc:'Per-habit streaks, completion rate, and settings at a glance' },
-      ],
-    },
-    ja: {
-      mainTitle:       '火, 4月1日',
-      mainProgressCnt: '3/5 完了',
-      mainProgressLbl: 'もう少し！',
-      mainProgressPct: '60%',
-      mainInProgress:  '進行中 (2)',
-      habits: [
-        { e:'🧘', color:'#4A7C59', name:'朝の瞑想',       streak:'🔥 14日連続',    done:true  },
-        { e:'💧', color:'#5B8DD9', name:'水を飲む',        streak:'🔥 7日連続',     done:true  },
-        { e:'📖', color:'#F0A500', name:'20分読書',        streak:'🔥 42日連続',    done:true  },
-        { e:'🚶', color:'#6FCBA0', name:'夜のウォーク',    streak:'新しいスタート',  done:false, streakNew:true },
-        { e:'📝', color:'#E8A87C', name:'ジャーナリング',  streak:'🔥 3日連続',     done:false },
-      ],
-      statsTitle: '統計',
-      statsMonth: '4月',
-      statsBest:  '最高',
-      statsRate:  '達成率',
-      statsNow:   '現在',
-      statsMilestonesLabel: 'マイルストーン',
-      rightWidgetLabel:    'ホーム画面ウィジェット',
-      rightWidgetSub:      '今日',
-      rightWidgetStreak:   '🔥 12日連続',
-      rightLockLabel:      'ロック画面ウィジェットにも対応',
-      graceBadge:        'Grace Day',
-      graceTitle:        '今日は休んでいいよ',
-      graceSub:          'Grace Dayを使えばストリークが維持されます。\n連続使用はできません。',
-      graceStreakLabel:  '現在のストリーク',
-      graceStreakSub:    'Grace Day使用後も維持されます',
-      graceBtn:          'Grace Dayを使う',
-      widgetScreenTime:  '9:41',
-      widgetHomeDate:    '火曜日, 4月1日',
-      widgetTodayHabits: '今日の習慣',
-      widgetHabit1:      '朝の瞑想',
-      widgetHabit2:      '20分読書',
-      widgetStreakLabel:  'ストリーク',
-      widgetStreakDays:   '日連続',
-      widgetRateLabel:   '達成率',
-      widgetRateMonth:   '今月',
-      milestoneUnit:     '日',
-      features: [
-        { icon:'✅', title:'ワンタップチェックイン',              desc:'素早く直感的なUXで3秒で完了' },
-        { icon:'🔥', title:'ストリーク & マイルストーン',          desc:'3・7・14・30・66・100日の達成バッジ' },
-        { icon:'☀️', title:'Grace Day',                        desc:'1日休んでもストリークを維持' },
-        { icon:'🚫', title:'回避習慣',                          desc:'悪い習慣を追跡 & 深夜に自動完了' },
-        { icon:'📱', title:'ホーム・ロック画面ウィジェット',       desc:'iOS 17インタラクティブウィジェットでアプリなしでチェックイン' },
-        { icon:'📊', title:'月間ヒートマップ',                   desc:'成長パターンを一目で可視化' },
-        { icon:'🔔', title:'カスタム通知',                       desc:'習慣ごとにお好みの時間に通知設定' },
-        { icon:'❤️', title:'Apple Health連携',                 desc:'歩数・運動・睡眠・マインドフルネスを自動完了' },
-        { icon:'☁️', title:'iCloud同期',                       desc:'iPhone・iPad間でシームレスに自動同期' },
-        { icon:'↩️', title:'遡及完了',                          desc:'最大3日前の記録を追加可能' },
-        { icon:'💾', title:'データのエクスポート/インポート',      desc:'JSONバックアップ & いつでも復元' },
-        { icon:'🌙', title:'ダークモード',                       desc:'システム設定に応じて自動切り替え' },
-        { icon:'📋', title:'iPad完全対応',                      desc:'サイドバー + 詳細パネルSplit View、iPad専用Largeウィジェット' },
-        { icon:'🎙️', title:'Siriショートカット',                  desc:'音声で習慣チェックイン & 今日の進捗確認' },
-        { icon:'🏝️', title:'Dynamic Island',                   desc:'Live Activitiesでロック画面から進捗をリアルタイム表示' },
-        { icon:'🔍', title:'Spotlight検索',                     desc:'ホーム画面から習慣名で直接検索' },
-        { icon:'🎛️', title:'コントロールセンターウィジェット',      desc:'コントロールセンターから素早くチェックイン' },
-        { icon:'📈', title:'習慣別詳細統計',                     desc:'習慣ごとの現在/最長ストリーク、達成率、設定を一目で確認' },
-      ],
-    },
-  };
-
-  /* ── Heatmap generator ───────────────────────────────── */
-  function buildHeatmap(containerId, seed) {
-    const el = document.getElementById(containerId);
-    if (!el) return;
-    const colors = ['#E2DDD6','#B5D5C4','#6FCBA0','#4A7C59','#2D5C3F'];
-    let html = '';
-    for (let i = 0; i < 28; i++) {
-      const val = Math.floor((Math.sin(seed + i * 0.7) * 0.5 + 0.5) * 5);
-      const bg = colors[Math.min(val, 4)];
-      html += `<div class="mock-heatmap-cell" style="background:${bg}"></div>`;
-    }
-    el.innerHTML = html;
-  }
-
-  /* ── Habit list renderer ─────────────────────────────── */
-  function buildHabits(containerId, habits) {
-    const el = document.getElementById(containerId);
-    if (!el) return;
-    // Show pending first (not done), then completed (done, dimmed)
-    const pending   = habits.filter(h => !h.done);
-    const completed = habits.filter(h => h.done);
-    el.innerHTML = [
-      ...pending.map(h => habitCard(h, false)),
-      ...completed.map(h => habitCard(h, true)),
-    ].join('');
-  }
-
-  function habitCard(h, dimmed) {
-    const check = h.done
-      ? '<svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>'
-      : '';
-    return `
-      <div class="mock-habit${dimmed ? ' dimmed' : ''}">
-        <div class="mock-habit-left">
-          <div class="mock-habit-colorbar" style="background:${h.color};"></div>
-          <div class="mock-habit-emoji">${h.e}</div>
-        </div>
-        <div class="mock-habit-info">
-          <div class="mock-habit-name">${h.name}</div>
-          <div class="mock-habit-streak${h.streakNew ? ' new' : ''}">${h.streak}</div>
-        </div>
-        <div class="mock-check ${h.done ? 'done' : 'todo'}">${check}</div>
-      </div>`;
-  }
-
-  /* ── Features list renderer ─────────────────────────── */
-  function buildFeaturesList(lang) {
-    const el = document.getElementById('features-list');
-    if (!el) return;
-    el.innerHTML = i18n[lang].features.map(f => `
-      <div class="features-list-item">
-        <div class="features-list-icon">${f.icon}</div>
-        <div class="features-list-text">
-          <h4>${f.title}</h4>
-          <p>${f.desc}</p>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  /* ── setLang ─────────────────────────────────────────── */
   function setLang(lang) {
-    // Toggle visibility
     document.querySelectorAll('[lang-block]').forEach(el => {
       el.classList.toggle('visible', el.getAttribute('lang-block') === lang);
-    });
-    document.querySelectorAll('[lang-block-inline]').forEach(el => {
-      el.classList.toggle('visible', el.getAttribute('lang-block-inline') === lang);
     });
     document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+    document.getElementById('btn-de').classList.toggle('active', lang === 'de');
     document.documentElement.lang = lang;
-
-    const t = i18n[lang];
-
-    // Center phone
-    document.getElementById('main-title').textContent          = t.mainTitle;
-    document.getElementById('main-progress-count').textContent = t.mainProgressCnt;
-    document.getElementById('main-progress-label').textContent = t.mainProgressLbl;
-    document.getElementById('main-progress-pct').textContent   = t.mainProgressPct;
-    document.getElementById('main-in-progress-header').textContent = t.mainInProgress;
-    buildHabits('main-habits', t.habits);
-
-    // Left phone stats
-    document.getElementById('stats1-title').textContent      = t.statsTitle;
-    document.getElementById('stats1-month').textContent      = t.statsMonth;
-    document.getElementById('stats1-best').textContent       = t.statsBest;
-    document.getElementById('stats1-rate').textContent       = t.statsRate;
-    document.getElementById('stats1-now').textContent        = t.statsNow;
-    document.getElementById('stats1-milestones').textContent = t.statsMilestonesLabel;
-
-    // Right phone widget
-    document.getElementById('right-widget-label').textContent = t.rightWidgetLabel;
-    document.getElementById('right-widget-sub').textContent    = t.rightWidgetSub;
-    document.getElementById('right-widget-streak').textContent = t.rightWidgetStreak;
-    document.getElementById('right-lockscreen-label').textContent = t.rightLockLabel;
-
-    // Spotlight 1 stats
-    // (same IDs already updated above)
-
-    // Grace Day
-    document.getElementById('grace-badge').textContent        = t.graceBadge;
-    document.getElementById('grace-title').textContent        = t.graceTitle;
-    document.getElementById('grace-sub').textContent          = t.graceSub;
-    document.getElementById('grace-streak-label').textContent = t.graceStreakLabel;
-    document.getElementById('grace-streak-sub').textContent   = t.graceStreakSub;
-    document.getElementById('grace-btn').textContent          = t.graceBtn;
-
-    // Widget spotlight
-    document.getElementById('widget-screen-time').textContent  = t.widgetScreenTime;
-    document.getElementById('widget-home-date').textContent    = t.widgetHomeDate;
-    document.getElementById('widget-today-habits').textContent = t.widgetTodayHabits;
-    document.getElementById('widget-habit1').textContent       = t.widgetHabit1;
-    document.getElementById('widget-habit2').textContent       = t.widgetHabit2;
-    document.getElementById('widget-streak-label').textContent = t.widgetStreakLabel;
-    document.getElementById('widget-streak-days').textContent  = t.widgetStreakDays;
-    document.getElementById('widget-rate-label').textContent   = t.widgetRateLabel;
-    document.getElementById('widget-rate-month').textContent   = t.widgetRateMonth;
-
-    // Milestone units
-    document.querySelectorAll('[lang-content-milestone="days"]').forEach(el => {
-      el.textContent = t.milestoneUnit;
-    });
-
-    // App Store links (ko → KR store, ja → JP store, en → US store)
-    const storeUrl = lang === 'ko'
-      ? 'https://apps.apple.com/kr/app/virmina-%EB%AF%B8%EB%8B%88%EB%A9%80-%EC%8A%B5%EA%B4%80-%ED%8A%B8%EB%9E%98%EC%BB%A4/id6761351988'
-      : lang === 'ja'
-        ? 'https://apps.apple.com/jp/app/virmina-minimal-habit-tracker/id6761351988'
-        : 'https://apps.apple.com/us/app/virmina-minimal-habit-tracker/id6761351988';
-    document.getElementById('btn-appstore-hero').href     = storeUrl;
-    document.getElementById('btn-appstore-download').href = storeUrl;
-
-    // Features list
-    buildFeaturesList(lang);
+    localStorage.setItem('virmina-lang', lang);
   }
 
-  /* ── Init ────────────────────────────────────────────── */
-  document.addEventListener('DOMContentLoaded', () => {
-    buildHeatmap('heatmap-left',   42);
-    buildHeatmap('heatmap-stats1', 42);
+  // URL param > localStorage > 브라우저 언어
+  (function () {
+    const params  = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (['ko','en','ja','de'].includes(urlLang)) { setLang(urlLang); return; }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get('lang');
-    let preferred;
-    if (urlLang) {
-      if (urlLang === 'ko' || urlLang === 'kr') preferred = 'ko';
-      else if (urlLang === 'ja') preferred = 'ja';
-      else preferred = 'en';
-    } else {
-      const nav = navigator.language;
-      if (nav.startsWith('ko')) preferred = 'ko';
-      else if (nav.startsWith('ja')) preferred = 'ja';
-      else preferred = 'en';
-    }
-    setLang(preferred);
-  });
+    const saved = localStorage.getItem('virmina-lang');
+    if (['ko','en','ja','de'].includes(saved)) { setLang(saved); return; }
+
+    const nav = navigator.language;
+    if (nav.startsWith('ko')) { setLang('ko'); return; }
+    if (nav.startsWith('ja')) { setLang('ja'); return; }
+    if (nav.startsWith('de')) { setLang('de'); return; }
+    setLang('en');
+  })();
 </script>
 </body>
 </html>
